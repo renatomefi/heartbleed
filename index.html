@@ -258,19 +258,17 @@
 
 <h4>Como o OpenSSL pode ser corrigido?</h4>
 
-<p>Even though the actual code fix may appear trivial, OpenSSL team is the expert in fixing it properly so
-    latest fixed version 1.0.1g or newer should be used. If this is not possible software developers can
-    recompile OpenSSL with the handshake removed from the code by compile time option
-    <code>-DOPENSSL_NO_HEARTBEATS</code>.
+<p>Mesmo que a correção pareça trivial, o time da OpenSSL team  está expert em resolver de maneira apropriedade que a última versão corrigida 1.0.1g
+  ou novas devem ser usadas. Se isso não for possível, desenvolvedores podem recompilar o OpenSSL com o pareamente removido utilizando a opção
+    <code>-DOPENSSL_NO_HEARTBEATS</code> no momento da compilação.
 </p>
 
 <h4>A extensão heartbeat deve ser removida com o intuito de ajudar na deteção de serviços vulneráveis?</h4>
 
-<p>Recovery from this bug could benefit if the new version of the OpenSSL would both fix the bug and disable
-    heartbeat temporarily until some future version. It appears that majority if not almost all TLS
-    implementations that respond to the heartbeat request today are vulnerable versions of OpenSSL. If only
-    vulnerable versions of OpenSSL would continue to respond to the heartbeat for next few months then large
-    scale coordinated response to reach owners of vulnerable services would become more feasible.</p>
+<p>A recuperação dessa vulnerabilidade poderia beneficiar se a nova versão do OpenSSL corrigisse a falha como desabilitasse temporariamente o heartbeat
+    até algumas futuras versões. Parece que a maioria se não quase todas implementações TLS que respondem
+    a requisição heartbeat hoje são versões vulneráveis de OpenSSL. Se somente versões vulneráveis de OpenSSL continuassem a
+    a responder ao heartbeat pelos próximos meses se tornaria mais factível alcançar proprietários de serviços vulneráveis.</p>
 
 <h4>É possível detectar se alguém aproveitou a falha e usou contra mim?</h4>
 
@@ -293,8 +291,8 @@
 <h4>O invasor pode acessar realmente só 64 kilobytes da memória?</h4>
 
 <p>Não há uma limitação de 64 kilobytes no ataque, esse limite se aplica somente a um único heartbeat.
-  O invasor can either keep reconnecting or during an active TLS connection keep requesting
-  arbitrary number of 64 kilobyte chunks of memory content until enough secrets are revealed.</p>
+  O invasor pode se reconectar como durante a conexão TLS ativa enviar requisições solicitando um número arbitrário de 64 kilobyte de conteúdo
+  em memória até o todos os segredos sejam revelados.</p>
 
 <h4>Este é um ataque <i>man in the middle</i> como ocorreu na Apple?</h4>
 
