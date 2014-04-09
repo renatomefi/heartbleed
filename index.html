@@ -220,7 +220,8 @@
     <li>OpenSSL ramificação 0.9.8 NÃO está vulnerável</li>
 </ul>
 
-<p>A falha está incluída no OpenSSL desde dezembro de 2011, e foi amplamente difundida desde o OpenSSL versão 1.0.1 de 14
+<p>A falha está incluída no OpenSSL desde dezembro de 2011, e foi amplamente difundida desde o OpenSSL versão 1.0.1 de
+    14
     de março de 2012. A versão do OpenSSL 1.0.1g que foi liberada em 7 de abril de 2014 contém a correção da falha.</p>
 
 <h4>Quão difundidas são as versões vulneráveis do OpenSSL?</h4>
@@ -258,19 +259,22 @@
 
 <h4>Como o OpenSSL pode ser corrigido?</h4>
 
-<p>Even though the actual code fix may appear trivial, OpenSSL team is the expert in fixing it properly so
-    latest fixed version 1.0.1g or newer should be used. If this is not possible software developers can
-    recompile OpenSSL with the handshake removed from the code by compile time option
-    <code>-DOPENSSL_NO_HEARTBEATS</code>.
+<p>Mesmo que a correção pareça trivial, o time da OpenSSL team está expert em resolver de maneira apropriedade que a
+    última versão corrigida 1.0.1g
+    ou novas devem ser usadas. Se isso não for possível, desenvolvedores podem recompilar o OpenSSL com o pareamente
+    removido utilizando a opção
+    <code>-DOPENSSL_NO_HEARTBEATS</code> no momento da compilação.
 </p>
 
 <h4>A extensão heartbeat deve ser removida com o intuito de ajudar na deteção de serviços vulneráveis?</h4>
 
-<p>Recovery from this bug could benefit if the new version of the OpenSSL would both fix the bug and disable
-    heartbeat temporarily until some future version. It appears that majority if not almost all TLS
-    implementations that respond to the heartbeat request today are vulnerable versions of OpenSSL. If only
-    vulnerable versions of OpenSSL would continue to respond to the heartbeat for next few months then large
-    scale coordinated response to reach owners of vulnerable services would become more feasible.</p>
+<p>A recuperação dessa vulnerabilidade poderia beneficiar se a nova versão do OpenSSL corrigisse a falha como
+    desabilitasse temporariamente o heartbeat
+    até algumas futuras versões. Parece que a maioria se não quase todas implementações TLS que respondem
+    a requisição heartbeat hoje são versões vulneráveis de OpenSSL. Se somente versões vulneráveis de OpenSSL
+    continuassem a
+    a responder ao heartbeat pelos próximos meses se tornaria mais factível alcançar proprietários de serviços
+    vulneráveis.</p>
 
 <h4>É possível detectar se alguém aproveitou a falha e usou contra mim?</h4>
 
@@ -281,32 +285,36 @@
 <p> Mesmo o conteúdo da requisição heartbeat seja encriptado ele tem seu próprio tipo de registro no protocolo.
     Isto deve possibilitar detecção de intrusos e a prevenção de sistemas (IDS/IPS) de ser treinado para detectar
     o uso da requisição heartbeat. Devido a criptografia diferenciar entre o uso legítimo e ataque não pode ser baseado
-    no conteúdo da requisição, mas a invasão pode ser detectada pela comparação do tamanho da requisição pelo tamanho da resposta.
-  Isso parece implicar que IDS/IPS pode ser programado para detectar a invasão mas não bloquear a menos
-  que todas as requisições heatbeat sejam bloquedas juntas. </p>
+    no conteúdo da requisição, mas a invasão pode ser detectada pela comparação do tamanho da requisição pelo tamanho da
+    resposta.
+    Isso parece implicar que IDS/IPS pode ser programado para detectar a invasão mas não bloquear a menos
+    que todas as requisições heatbeat sejam bloquedas juntas. </p>
 
 <h4>Já houveram muitos ataques?</h4>
 
-<p>Nós não sabemos. A comunidade de segurança deve implantar <i>TLS/DTLS honeypots</i> que capturam invasores e alertam sobre
+<p>Nós não sabemos. A comunidade de segurança deve implantar <i>TLS/DTLS honeypots</i> que capturam invasores e alertam
+    sobre
     a tentativa de invasão.</p>
 
 <h4>O invasor pode acessar realmente só 64 kilobytes da memória?</h4>
 
 <p>Não há uma limitação de 64 kilobytes no ataque, esse limite se aplica somente a um único heartbeat.
-  O invasor pode fazer diversas conexões durante uma sessão TLS ativa e continuar extraindo setores de 64 Kilobytes até
+    O invasor pode fazer diversas conexões durante uma sessão TLS ativa e continuar extraindo setores de 64 Kilobytes
+    até
     que o conteúdo desejado seja totalmente revelado.</p>
 
 <h4>Este é um ataque <i>man in the middle</i> como ocorreu na Apple?</h4>
 
-<p>Não, essa vulnerabilidade não requer <i>man in the middle</i> (MITM). O invasor pode diretamente contatar o serviço vulnerável
+<p>Não, essa vulnerabilidade não requer <i>man in the middle</i> (MITM). O invasor pode diretamente contatar o serviço
+    vulnerável
     ou atacar qualquer usuário conectado a um serviço malicioso. Entretanto, além da ameaça direta o ladrão
     da chave possibilita aos invasores <i>man in the middle</i> personificar serviços comprometidos.</p>
 
 <h4>Os clientes de autenticação TLS conseguem lidar com isso?</h4>
 
 <p>Não, a requisição heartbeat pode ser enviada e respondida durante a etapa de pareamento do protocolo.
-   Isso ocorre antes da autenticação do certificado do cliente.
-   </p>
+    Isso ocorre antes da autenticação do certificado do cliente.
+</p>
 
 <h4>O modo FIPS do OpenSSL consegue lidar com isso?</h4>
 
@@ -315,20 +323,24 @@
 <h4>O Perfect Forward Secrecy (PFS) minimiza esta vulnerabilidade?</h4>
 
 <p>
-   O uso do Perfect Forward Secrecy (PFS), o que, infelizmente, é raro mas poderoso, pode proteger comunicações antigas
-   de descriptografia retrospectiva. Por favor, veja <a href="https://twitter.com/ivanristic/status/453280081897467905">https://twitter.com/ivanristic/status/453280081897467905</a>
-   como chaves que vazaram podem afetar este recurso.</p>
+    O uso do Perfect Forward Secrecy (PFS), o que, infelizmente, é raro mas poderoso, pode proteger comunicações antigas
+    de descriptografia retrospectiva. Por favor, veja <a
+        href="https://twitter.com/ivanristic/status/453280081897467905">https://twitter.com/ivanristic/status/453280081897467905</a>
+    como chaves que vazaram podem afetar este recurso.</p>
 
 <h4>A extensão heartbeat pode ser desabilitada durante o pareamento do protocolo TLS?</h4>
 
-<p>Não, o código da extensão vulnerável heartbeat é ativado independemente do resultado da etapa de negociação e pareamento.
-    O único caminho para se proteger é fazendo a atualização para uma versão corrigida do OpenSSL ou recompilar o OpenSSL sem a extensão heartbeat.</p>
+<p>Não, o código da extensão vulnerável heartbeat é ativado independemente do resultado da etapa de negociação e
+    pareamento.
+    O único caminho para se proteger é fazendo a atualização para uma versão corrigida do OpenSSL ou recompilar o
+    OpenSSL sem a extensão heartbeat.</p>
 
 <h4>Quem encontrou a vulnerabilidade Heartbleed?</h4>
 
 <p>Esta falha foi uma descoberta independente feita pelo time de engenheiros de segurança (Riku, Antti and Matti) no <a
-    href="http://www.codenomicon.com/">Codenomicon</a> e Neel Mehta do Google Security, o qual foi o primeiro
-    a reportar isso ao time da OpenSSL. O time da Codenomicon encontrou a vulnerabilidade heartbleed enquanto melhoravam o SafeGuard,
+        href="http://www.codenomicon.com/">Codenomicon</a> e Neel Mehta do Google Security, o qual foi o primeiro
+    a reportar isso ao time da OpenSSL. O time da Codenomicon encontrou a vulnerabilidade heartbleed enquanto melhoravam
+    o SafeGuard,
     recurso do Codenomicon's Defensics, ferramenta de testes de segurança que reportou essa falha ao NCSC-FI para
     a coordenação de vulnerabilidade e reportou ao time OpenSSL.</p>
 
@@ -340,7 +352,8 @@
     que tenham exposto os usuários da internet ao ataque <i>man in the middle</i> e ao hacking <i>eavesdropping</i>.
     Além da falha HeartBleed o novo recurso da Defensics TLS Safeguard pode detectar por exemplo
     a falha de segurança no amplamente utilizado GnuTLS, aplicação de código aberto que implementa a funcionalidade
-    SSL/TLS no <a href="http://gotofail.com/">"goto fail;"</a>, falha na implementação TLS/SSL da Apple que foi corrigida
+    SSL/TLS no <a href="http://gotofail.com/">"goto fail;"</a>, falha na implementação TLS/SSL da Apple que foi
+    corrigida
     em Fevereiro 2014.</p>
 
 <h4>Quem coordena a resposta a esta vulnerabilidade?</h4>
@@ -361,7 +374,8 @@
 
 <h4>Onde encontrar mais informação?</h4>
 
-<p>Este Q&amp;A foi publicado como sequência ao aviso da OpenSSL, desde de que sua vulnerabilidade tornou-se pública em 7
+<p>Este Q&amp;A foi publicado como sequência ao aviso da OpenSSL, desde de que sua vulnerabilidade tornou-se pública em
+    7
     de abril de 2014.
     O projeto OpenSSL fez uma declaração oficial em seu site <a
             href="https://www.openssl.org/news/secadv_20140407.txt">https://www.openssl.org/news/secadv_20140407.txt</a>.
@@ -434,7 +448,8 @@
 <footer class="container">
     <div class="row">
         <div class="col-md-offset-2 col-lg-4 col-md-4 col-sm-4">
-            <a class="renatomefi" title="Renatomefi IT Intelligence" href="http://www.renatomefi.com.br/" target="_blank">Renatomefi
+            <a class="renatomefi" title="Renatomefi IT Intelligence" href="http://www.renatomefi.com.br/"
+               target="_blank">Renatomefi
                 IT Intelligence</a>
         </div>
         <div class="col-lg-4 col-md-4 col-sm-4">
