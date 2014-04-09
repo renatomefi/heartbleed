@@ -60,9 +60,11 @@
             para segurança na internet. Os protocolos SSL/TLS fornecem comunicação segura e privacidade em conexões de
             internet, muito utilizados em aplicações web, email, mensageiros instantâneos (IM) e redes de comunicação
             privadas (VPNs).</p>
+
         <p>Este bug permite que qualquer pessoa na internet seja capaz de ler uma parte da memória ram dos sistemas
-           protegidos pelo OpenSSL. Assim comprometendo as chaves de identificação que os serviços utilizam para
-           criptografar o tráfego, este que pode conter usuários, senhas e o conteúdo enviado pelo usuário. Isso permite
+            protegidos pelo OpenSSL. Assim comprometendo as chaves de identificação que os serviços utilizam para
+            criptografar o tráfego, este que pode conter usuários, senhas e o conteúdo enviado pelo usuário. Isso
+            permite
             que invasores que estão monitorando sua comunicação, sejam capazes de roubar suas informações que estariam
             criptografadas inicialmente.</p>
     </div>
@@ -73,23 +75,25 @@
 
 <div class="row">
     <div class="col-lg-6 col-md-6 col-sm-6">
-        <h3>What leaks in practice?</h3>
+        <h3>Na prática, quais informações estão vulneráveis?</h3>
 
-        <p>We have tested some of our own services from attacker's perspective. We attacked ourselves from outside,
-            without leaving a trace. Without using any privileged information or credentials we were able steal from
-            ourselves the secret keys used for our X.509 certificates, user names and passwords, instant messages,
-            emails and business critical documents and communication.</p>
+        <p>Nós testamos a falha em nossos serviços, nos comportando como invasores. Foi possível atacar sem deixar
+            nenhum tipo de vestígio, mesmo fazendo um acesso por fora de nossos servidores. Fazendo um teste neutro sem
+            utilizar informações privilegiadas ou credenciais de acesso, nós fomos capazes de obter as chaves de
+            criptografia dos certificados X.509, assim como usuários e senhas, mensagens, emails e documentos da
+            empresa.
+        </p>
     </div>
 
     <div class="col-lg-6 col-md-6 col-sm-6">
-        <h3>How to stop the leak?</h3>
+        <h3>Como parar a vulnerabilidade?</h3>
 
-        <p>As long as the vulnerable version of OpenSSL is in use it can be abused. <a
-                href="https://www.openssl.org/news/secadv_20140407.txt">Fixed OpenSSL</a> has been released and now
-            it has to be deployed. Operating system vendors and distribution, appliance vendors, independent
-            software vendors have to adopt the fix and notify their users. Service providers and users have to
-            install the fix as it becomes available for the operating systems, networked appliances and software
-            they use.</p>
+        <p>Enquanto as versões que apresentam a falha estiverem em uso, as aplicações poderão ser atacadas. <a
+            href="https://www.openssl.org/news/secadv_20140407.txt">Versão corrigida do OpenSSL</a> foi liberada e agora
+        deve ser aplicada. Fabricantes de sistema operacional, distribuidores, vendedores de solução,
+        desenvolvedores independentes devem adotar a correção e notificar seus usuários. Provedores de serviços e
+        seus usuários devem instalar a correção nos seus sistemas operacionais, serviços de rede e aplicações assim
+        que suas versões forem liberadas.</p>
     </div>
 </div>
 <div class="row">
@@ -349,11 +353,13 @@
 
 <h4>Where to find more information?</h4>
 
-<p>Este Q&amp;A foi publicado como sequência ao aviso OpenSSL, desde de que sua vulnerabilidade tornou-se pública em 7 de abril de 2014.
+<p>Este Q&amp;A foi publicado como sequência ao aviso OpenSSL, desde de que sua vulnerabilidade tornou-se pública em 7
+    de abril de 2014.
     O projeto OpenSSL fez uma declaração na <a
             href="https://www.openssl.org/news/secadv_20140407.txt">https://www.openssl.org/news/secadv_20140407.txt</a>.
     NCSC-FI publicou um aviso em <a href="https://www.cert.fi/en/reports/2014/vulnerability788210.html">https://www.cert.fi/en/reports/2014/vulnerability788210.html</a>.
-    Fornecedores individuais de distribuições de sistemas operacionais, proprietários afetados de serviços de Internet, pacotes de software
+    Fornecedores individuais de distribuições de sistemas operacionais, proprietários afetados de serviços de Internet,
+    pacotes de software
     e fornecedores de aparelhos podem emitir seus próprios avisos.</p>
 
 <h4>Referências</h4>
