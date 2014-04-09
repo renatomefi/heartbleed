@@ -300,18 +300,17 @@
 <p>No, OpenSSL Federal Information Processing Standard (FIPS) mode has no effect on the vulnerable heartbeat
     functionality.</p>
 
-<h4>Does Perfect Forward Secrecy (PFS) mitigate this?</h4>
+<h4>O Perfect Forward Secrecy (PFS) minimiza esta vulnerabilidade?</h4>
 
-<p>Use of Perfect Forward Secrecy (PFS), which is unfortunately rare but powerful, should protect past
-    communications from retrospective decryption. Please see <a
-            href="https://twitter.com/ivanristic/status/453280081897467905">https://twitter.com/ivanristic/status/453280081897467905</a>
-    how leaked tickets may affect this.</p>
+<p>
+   O uso do Perfect Forward Secrecy (PFS), o que, infelizmente, é raro mas poderoso, pode proteger comunicações antigas
+   de descriptografia retrospectiva. Por favor, veja <a href="https://twitter.com/ivanristic/status/453280081897467905">https://twitter.com/ivanristic/status/453280081897467905</a>
+   como chaves que vazaram podem afetar este recurso.</p>
 
 <h4>A extensão heartbeat pode ser desabilitada durante o pareamento do protocolo TLS?</h4>
 
-<p>No, vulnerable heartbeat extension code is activated regardless of the results of the handshake phase
-    negotiations. Only way to protect yourself is to upgrade to fixed version of OpenSSL or to recompile
-    OpenSSL with the handshake removed from the code.</p>
+<p>Não, o código da extensão vulnerável heartbeat é ativado independemente do resultado da etapa de negociação e pareamento.
+    O único caminho para se proteger é fazendo a atualização para uma versão corrigida do OpenSSL ou recompilar o OpenSSL com o pareamento removido.</p>
 
 <h4>Quem encontrou a vulnerabilidade Heartbleed?</h4>
 
