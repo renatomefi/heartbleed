@@ -181,9 +181,9 @@
 
 <h4>Na prática, como a negação e a reemissão dos certificados funciona? </h4>
 
-<p>If you are a service provider you have signed your certificates with a Certificate Authority (CA). You
-    need to check your CA how compromised keys can be revoked and new certificate reissued for the new keys.
-    Some CAs do this for free, some may take a fee.</p>
+<p>Se você é um provedor de serviço você assinou seus certificados com <i>Certificate Authority</i> (CA). Você
+    precisa verificar seu CA como chaves comprometidas podem ser revogadas e um novo certificado reeditado para as novas chaves.
+    Alguns CAs fazem isso gratuitamente, alguns podem cobrar taxas.</p>
 
 <h4>Eu estou afetado pela vulnerabilidade?</h4>
 
@@ -198,7 +198,7 @@
 
 <h4>O quão a falha está difundida?</h4>
 
-<p>Most notable software using OpenSSL are the open source web servers like Apache and nginx. The combined
+<p>Software mais notável usando OpenSSL são web servers de código aberto como Apache e nginx. The combined
     market share of just those two out of the active sites on the Internet was over 66% according to <a
             href="http://news.netcraft.com/archives/2014/04/02/april-2014-web-server-survey.html">Netcraft's
         April 2014 Web Server Survey</a>. Furthermore OpenSSL is used to protect for example email servers
@@ -220,15 +220,14 @@
     <li>OpenSSL ramificação 0.9.8 NÃO está vulnerável</li>
 </ul>
 
-<p>Bug was introduced to OpenSSL in December 2011 and has been out in the wild since OpenSSL release 1.0.1
-    on 14th of March 2012. OpenSSL 1.0.1g released on 7th of April 2014 fixes the bug.</p>
+<p>A vulnerabilidade foi introduzida ao OpenSSL em dezembro de 2011 e está solto desde o lançamento da OpenSSL 1.0.1
+    em 14 de março de 2012. A OpenSSL 1.0.1g foi lançada em 7 de abril 2014 e corrigiu a vulnerabilidade.</p>
 
 <h4>Quão difundidas são as versões vulneráveis do OpenSSL?</h4>
 
-<p>The vulnerable versions have been out there for over two years now and they have been rapidly adopted by
-    modern operating systems. A major contributing factor has been that TLS versions 1.1 and 1.2 came
-    available with the first vulnerable OpenSSL version (1.0.1) and security community has been pushing the
-    TLS 1.2 due to earlier attacks against TLS (such as the <a
+<p>As versões vulneráveis estão disponívels há dois anos agora e elas foram adotas rapidamente pelos sistemas operacionais modernos.
+    O maior fator de contribuição foi que as versões TLS 1.1 e 1.2 ficaram disponíveis com a primeira versão OpenSSL (1.0.1) vulnerável
+  e a comunidade de segurança vem forçando a TLS 1.2 devido a ataques mais antigos contra TLS (como o <a
             href="http://en.wikipedia.org/wiki/Transport_Layer_Security#BEAST_attack">BEAST</a>).</p>
 
 <h4>E os Sistemas Operacionais?</h4>
