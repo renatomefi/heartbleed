@@ -60,9 +60,11 @@
             para segurança na internet. Os protocolos SSL/TLS fornecem comunicação segura e privacidade em conexões de
             internet, muito utilizados em aplicações web, email, mensageiros instantâneos (IM) e redes de comunicação
             privadas (VPNs).</p>
+
         <p>Este bug permite que qualquer pessoa na internet seja capaz de ler uma parte da memória ram dos sistemas
-           protegidos pelo OpenSSL. Assim comprometendo as chaves de identificação que os serviços utilizam para
-           criptografar o tráfego, este que pode conter usuários, senhas e o conteúdo enviado pelo usuário. Isso permite
+            protegidos pelo OpenSSL. Assim comprometendo as chaves de identificação que os serviços utilizam para
+            criptografar o tráfego, este que pode conter usuários, senhas e o conteúdo enviado pelo usuário. Isso
+            permite
             que invasores que estão monitorando sua comunicação, sejam capazes de roubar suas informações que estariam
             criptografadas inicialmente.</p>
     </div>
@@ -73,60 +75,66 @@
 
 <div class="row">
     <div class="col-lg-6 col-md-6 col-sm-6">
-        <h3>What leaks in practice?</h3>
+        <h3>Na prática, quais informações estão vulneráveis?</h3>
 
-        <p>We have tested some of our own services from attacker's perspective. We attacked ourselves from outside,
-            without leaving a trace. Without using any privileged information or credentials we were able steal from
-            ourselves the secret keys used for our X.509 certificates, user names and passwords, instant messages,
-            emails and business critical documents and communication.</p>
+        <p>Nós testamos a falha em nossos serviços, nos comportando como invasores. Foi possível atacar sem deixar
+            nenhum tipo de vestígio, mesmo fazendo um acesso por fora de nossos servidores. Fazendo um teste neutro sem
+            utilizar informações privilegiadas ou credenciais de acesso, nós fomos capazes de obter as chaves de
+            criptografia dos certificados X.509, assim como usuários e senhas, mensagens, emails e documentos da
+            empresa.
+        </p>
     </div>
 
     <div class="col-lg-6 col-md-6 col-sm-6">
-        <h3>How to stop the leak?</h3>
+        <h3>Como parar a vulnerabilidade?</h3>
 
-        <p>As long as the vulnerable version of OpenSSL is in use it can be abused. <a
-                href="https://www.openssl.org/news/secadv_20140407.txt">Fixed OpenSSL</a> has been released and now
-            it has to be deployed. Operating system vendors and distribution, appliance vendors, independent
-            software vendors have to adopt the fix and notify their users. Service providers and users have to
-            install the fix as it becomes available for the operating systems, networked appliances and software
-            they use.</p>
+        <p>Enquanto as versões que apresentam a falha estiverem em uso, as aplicações poderão ser atacadas. <a
+            href="https://www.openssl.org/news/secadv_20140407.txt">Versão corrigida do OpenSSL</a> foi liberada e agora
+        deve ser aplicada. Fabricantes de sistema operacional, distribuidores, vendedores de solução,
+        desenvolvedores independentes devem adotar a correção e notificar seus usuários. Provedores de serviços e
+        seus usuários devem instalar a correção nos seus sistemas operacionais, serviços de rede e aplicações assim
+        que suas versões forem liberadas.</p>
     </div>
 </div>
 <div class="row">
 <div class="col-lg-12 col-md-12 col-sm-12">
 <hr>
 <h3>Q&amp;A</h3>
-<h4>What is the CVE-2014-0160?</h4>
+<h4>O que é CVE-2014-0160?</h4>
 
+<p>CVE-2014-0160 é a referência oficial da falha.
+    CVE (Common Vulnerabilities and Exposures, Vulnerabilidades e Exposições públicas) é um padrão para
 <p>CVE-2014-0160 is the official reference to this bug. CVE (Common Vulnerabilities and Exposures) is the
     Standard for Information Security Vulnerability Names maintained by <a href="http://cve.mitre.org/">MITRE</a>.
     Due to co-incident discovery a duplicate CVE, CVE-2014-0346, which was assigned to us, should not be
     used, since others independently went public with the CVE-2014-0160 identifier.</p>
 
-<h4>Why it is called the Heartbleed Bug?</h4>
+
+<h4>Por quê esta falha é chamada de Heartbleed?</h4>
 
 <p>Bug is in the OpenSSL's implementation of the TLS/DTLS (transport layer security protocols) heartbeat
     extension (RFC6520). When it is exploited it leads to the leak of memory contents from the server to the
     client and from the client to the server.</p>
 
-<h4>What makes the Heartbleed Bug unique?</h4>
+<h4>O que torna a falha Heartbleed única?</h4>
 
 <p>Bugs in single software or library come and go and are fixed by new versions. However this bug has left
     large amount of private keys and other secrets exposed to the Internet. Considering the long exposure,
     ease of exploitation and attacks leaving no trace this exposure should be taken seriously.</p>
 
-<h4>Is this a design flaw in SSL/TLS protocol specification?</h4>
+
+<h4>Isso é uma falha na concepção da especificação do protocolo SSL/TLS?</h4>
 
 <p>No. This is implementation problem, i.e. programming mistake in popular OpenSSL library that provides
     cryptographic services such as SSL/TLS to the applications and services.</p>
 
-<h4>What is being leaked?</h4>
+<h4>Que informações estão sendo vazadas?</h4>
 
 <p>Encryption is used to protect secrets that may harm your privacy or security if they leak. In order to
     coordinate recovery from this bug we have classified the compromised secrets to four categories: 1)
     primary key material, 2) secondary key material and 3) protected content and 4) collateral.</p>
 
-<h4>What is leaked primary key material and how to recover?</h4>
+<h4>O que são as chaves primárias de criptografia vazadas e como recupera-las?</h4>
 
 <p>These are the crown jewels, the encryption keys themselves. Leaked secret keys allows the attacker to
     decrypt any past and future traffic to the protected services and to impersonate the service at will.
@@ -136,7 +144,7 @@
     the attacker in the past still vulnerable to decryption. All this has to be done by the owners of the
     services.</p>
 
-<h4>What is leaked secondary key material and how to recover?</h4>
+<h4>O que são as chaves secundárias de criptografia vazadas e como recupera-las?</h4>
 
 <p>These are for example the user credentials (user names and passwords) used in the vulnerable services.
     Recovery from this leaks requires owners of the service first to restore trust to the service according
@@ -144,7 +152,7 @@
     keys according to the instructions from the owners of the services that have been compromised. All
     session keys and session cookies should be invalided and considered compromised.</p>
 
-<h4>What is leaked protected content and how to recover?</h4>
+<h4>O que são os conteúdos protegidos vazados e como recupera-los?</h4>
 
 <p>This is the actual content handled by the vulnerable services. It may be personal or financial details,
     private communication such as emails or instant messages, documents or anything seen worth protecting by
@@ -153,27 +161,27 @@
     secondary key material as described above. Only this enables safe use of the compromised services in the
     future.</p>
 
-<h4>What is leaked collateral and how to recover?</h4>
+<h4>Quais são os vazamentos colaterais e como recupera-los?</h4>
 
 <p>Leaked collateral are other details that have been exposed to the attacker in the leaked memory content.
     These may contain technical details such as memory addresses and security measures such as canaries used
     to protect against overflow attacks. These have only contemporary value and will lose their value to the
     attacker when OpenSSL has been upgraded to a fixed version.</p>
 
-<h4>Recovery sounds laborious, is there a short cut?</h4>
+<h4>A recuperação parece trabalhosa, existe uma maneira fácil?</h4>
 
 <p>After seeing what we saw by "attacking" ourselves, with ease, we decided to take this very seriously. We
     have gone laboriously through patching our own critical services and are in progress of dealing with
     possible compromise of our primary and secondary key material. All this just in case we were not first
     ones to discover this and this could have been exploited in the wild already.</p>
 
-<h4>How revocation and reissuing of certificates works in practice?</h4>
+<h4>Na prática, como a negação e a reemissão dos certificados funciona? </h4>
 
 <p>If you are a service provider you have signed your certificates with a Certificate Authority (CA). You
     need to check your CA how compromised keys can be revoked and new certificate reissued for the new keys.
     Some CAs do this for free, some may take a fee.</p>
 
-<h4>Am I affected by the bug?</h4>
+<h4>Eu estou afetado pela vulnerabilidade?</h4>
 
 <p>You are likely to be affected either directly or indirectly. OpenSSL is the most popular open source
     cryptographic library and TLS (transport layer security) implementation used to encrypt traffic on the
@@ -184,7 +192,7 @@
     you might have client side software on your computer that could expose the data from your computer if
     you connect to compromised services.</p>
 
-<h4>How widespread is this?</h4>
+<h4>O quão a falha está difundida?</h4>
 
 <p>Most notable software using OpenSSL are the open source web servers like Apache and nginx. The combined
     market share of just those two out of the active sites on the Internet was over 66% according to <a
@@ -197,21 +205,21 @@
     most. Furthermore OpenSSL is very popular in client software and somewhat popular in networked
     appliances which have most inertia in getting updates.</p>
 
-<h4>What versions of the OpenSSL are affected?</h4>
+<h4>Quais as versões afetadas do OpenSSL?</h4>
 
-<p>Status of different versions:</p>
+<p>Relação de diferentes versões:</p>
 
 <ul>
-    <li>OpenSSL 1.0.1 through 1.0.1f (inclusive) are vulnerable</li>
-    <li>OpenSSL 1.0.1g is NOT vulnerable</li>
-    <li>OpenSSL 1.0.0 branch is NOT vulnerable</li>
-    <li>OpenSSL 0.9.8 branch is NOT vulnerable</li>
+    <li>OpenSSL 1.0.1 até 1.0.1f (inclusive) estão vulneráveis</li>
+    <li>OpenSSL 1.0.1g NÃO está vulnerável</li>
+    <li>OpenSSL ramificação 1.0.0 NÃO está vulnerável</li>
+    <li>OpenSSL ramificação 0.9.8 NÃO está vulnerável</li>
 </ul>
 
 <p>Bug was introduced to OpenSSL in December 2011 and has been out in the wild since OpenSSL release 1.0.1
     on 14th of March 2012. OpenSSL 1.0.1g released on 7th of April 2014 fixes the bug.</p>
 
-<h4>How common are the vulnerable OpenSSL versions?</h4>
+<h4>Quão difundidas são as versões vulneráveis do OpenSSL?</h4>
 
 <p>The vulnerable versions have been out there for over two years now and they have been rapidly adopted by
     modern operating systems. A major contributing factor has been that TLS versions 1.1 and 1.2 came
@@ -219,32 +227,32 @@
     TLS 1.2 due to earlier attacks against TLS (such as the <a
             href="http://en.wikipedia.org/wiki/Transport_Layer_Security#BEAST_attack">BEAST</a>).</p>
 
-<h4>How about operating systems?</h4>
+<h4>E os Sistemas Operacionais?</h4>
 
-<p>Some operating system distributions that have shipped with potentially vulnerable OpenSSL version:</p>
+<p>Algumas distribuições de sistemas operacionais que possuem a versão com a vulnerabilidade no OpenSSL:</p>
 
 <ul>
     <li>Debian Wheezy (stable), OpenSSL 1.0.1e-2+deb7u4</li>
     <li>Ubuntu 12.04.4 LTS, OpenSSL 1.0.1-4ubuntu5.11</li>
     <li>CentOS 6.5, OpenSSL 1.0.1e-15</li>
     <li>Fedora 18, OpenSSL 1.0.1e-4</li>
-    <li>OpenBSD 5.3 (OpenSSL 1.0.1c 10 May 2012) and 5.4 (OpenSSL 1.0.1c 10 May 2012)</li>
-    <li>FreeBSD 10.0 - OpenSSL 1.0.1e 11 Feb 2013</li>
+    <li>OpenBSD 5.3 (OpenSSL 1.0.1c 10 maio 2012) e 5.4 (OpenSSL 1.0.1c 10 maio 2012)</li>
+    <li>FreeBSD 10.0 - OpenSSL 1.0.1e 11 fevereiro 2013</li>
     <li>NetBSD 5.0.2 (OpenSSL 1.0.1e)</li>
     <li>OpenSUSE 12.2 (OpenSSL 1.0.1c)</li>
 </ul>
 
-<p>Operating system distribution with versions that are not vulnerable:</p>
+<p>lgumas distribuições de sistemas operacionais que NÃO possuem a versão com a vulnerabilidade no OpenSSL:</p>
 
 <ul>
-    <li>Debian Squeeze (oldstable), OpenSSL 0.9.8o-4squeeze14</li>
+    <li>Debian Squeeze (Versão estável antiga), OpenSSL 0.9.8o-4squeeze14</li>
     <li>SUSE Linux Enterprise Server</li>
-    <li>FreeBSD 8.4 - OpenSSL 0.9.8y 5 Feb 2013</li>
-    <li>FreeBSD 9.2 - OpenSSL 0.9.8y 5 Feb 2013</li>
-    <li>FreeBSD Ports - OpenSSL 1.0.1g (At 7 Apr 21:46:40 2014 UTC)</li>
+    <li>FreeBSD 8.4 - OpenSSL 0.9.8y 5 fevereiro de 2013</li>
+    <li>FreeBSD 9.2 - OpenSSL 0.9.8y 5 fevereiro de 2013</li>
+    <li>FreeBSD Ports - OpenSSL 1.0.1g (Em 7 de abril às 21:46:40 2014 UTC)</li>
 </ul>
 
-<h4>How can OpenSSL be fixed?</h4>
+<h4>Como o OpenSSL pode ser corrigido?</h4>
 
 <p>Even though the actual code fix may appear trivial, OpenSSL team is the expert in fixing it properly so
     latest fixed version 1.0.1g or newer should be used. If this is not possible software developers can
@@ -252,7 +260,7 @@
     <code>-DOPENSSL_NO_HEARTBEATS</code>.
 </p>
 
-<h4>Should heartbeat be removed to aid in detection of vulnerable services?</h4>
+<h4>A extensão heartbeat deve ser removida com o intuito de ajudar na deteção de serviços vulneráveis?</h4>
 
 <p>Recovery from this bug could benefit if the new version of the OpenSSL would both fix the bug and disable
     heartbeat temporarily until some future version. It appears that majority if not almost all TLS
@@ -260,11 +268,11 @@
     vulnerable versions of OpenSSL would continue to respond to the heartbeat for next few months then large
     scale coordinated response to reach owners of vulnerable services would become more feasible.</p>
 
-<h4>Can I detect if someone has exploited this against me?</h4>
+<h4>É possível detectar se alguém aproveitou a falha e usou contra mim?</h4>
 
-<p>Exploitation of this bug leaves no traces of anything abnormal happening to the logs.</p>
+<p>O abuso desta falha não deixa qualquer tipo de vestígio ou informações incomuns nos logs.</p>
 
-<h4>Can IDS/IPS detect or block this attack?</h4>
+<h4>É possível que IDS/IPS possam detectar e bloquear o ataque?</h4>
 
 <p>Although the content of the heartbeat request is encrypted it has its own record type in the protocol.
     This should allow intrusion detection and prevention systems (IDS/IPS) to be trained to detect use of
@@ -273,12 +281,12 @@
     against the size of the reply. This seems to imply that IDS/IPS can be programmed to detect the attack
     but not to block it unless heartbeat requests are blocked altogether.</p>
 
-<h4>Has this been abused in the wild?</h4>
+<h4>Já houveram muitos ataques?</h4>
 
 <p>We don't know. Security community should deploy TLS/DTLS honeypots that entrap attackers and to alert
     about exploitation attempts.</p>
 
-<h4>Can attacker access only 64k of the memory?</h4>
+<h4>O invasor pode acessar realmente só 64K da memória?</h4>
 
 <p>There is no total of 64 kilobytes limitation to the attack, that limit applies only to a single
     heartbeat. Attacker can either keep reconnecting or during an active TLS connection keep requesting
@@ -290,12 +298,12 @@
     service or attack any user connecting to a malicious service. However in addition to direct threat the
     theft of the key material allows man in the middle attackers to impersonate compromised services.</p>
 
-<h4>Does TLS client certificate authentication mitigate this?</h4>
+<h4>Os clientes de autenticação TLS conseguem lidar com isso?</h4>
 
 <p>No, heartbeat request can be sent and is replied to during the handshake phase of the protocol. This
     occurs prior to client certificate authentication.</p>
 
-<h4>Does OpenSSL's FIPS mode mitigate this?</h4>
+<h4>O modo FIPS do OpenSSLFIPS consegue lidar com isso?</h4>
 
 <p>No, OpenSSL Federal Information Processing Standard (FIPS) mode has no effect on the vulnerable heartbeat
     functionality.</p>
@@ -335,9 +343,8 @@
 
 <p><a href="https://www.cert.fi/en/index.html">NCSC-FI</a> tomou a tarefa de informar os autores do OpenSSL, softwares,
     sistemas operacionais e fornecedores de soluções, que foram potencialmente afetados. Entretanto,
-    esta vulnerabilidade foi encontrada e os detalhes foram lançados independemente por outros antes que este trabalho
-    estivesse completo. Fornecedores devem notificar seus usuários e provedores de serviços. Fornecedores de serviços pela internet devem
-    notificar seus usuário onde e quando uma ação deve ser tomada.</p>
+    esta vulnerabilidade foi encontrada e os detalhes foram lançados de forma independente por outros, antes que este trabalho
+    estivesse completo. Fornecedores de serviços pela internet devem notificar seus usuário onde e quando uma ação deve ser tomada.</p>
 
 <h4>Existe um lado bom de tudo isso?</h4>
 
@@ -348,11 +355,13 @@
 
 <h4>Onde encontrar mais informação?</h4>
 
-<p>Este Q&amp;A foi publicado como sequência ao aviso OpenSSL, desde de que sua vulnerabilidade tornou-se pública em 7 de abril de 2014.
+<p>Este Q&amp;A foi publicado como sequência ao aviso OpenSSL, desde de que sua vulnerabilidade tornou-se pública em 7
+    de abril de 2014.
     O projeto OpenSSL fez uma declaração na <a
             href="https://www.openssl.org/news/secadv_20140407.txt">https://www.openssl.org/news/secadv_20140407.txt</a>.
     NCSC-FI publicou um aviso em <a href="https://www.cert.fi/en/reports/2014/vulnerability788210.html">https://www.cert.fi/en/reports/2014/vulnerability788210.html</a>.
-    Fornecedores individuais de distribuições de sistemas operacionais, proprietários afetados de serviços de Internet, pacotes de software
+    Fornecedores individuais de distribuições de sistemas operacionais, proprietários afetados de serviços de Internet,
+    pacotes de software
     e fornecedores de aparelhos podem emitir seus próprios avisos.</p>
 
 <h4>Referências</h4>
