@@ -21,6 +21,24 @@
     <script src="http://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="http//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
+                    m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-48892402-3', 'heartbleed.com.br');
+        ga('send', 'pageview');
+
+    </script>
 </head>
 
 <body>
@@ -28,10 +46,16 @@
 <div class="container">
 <h1>A Vulnerabilidade Heartbleed</h1>
 
-<h2 class="text-muted">Tradução livre do <a href="http://heartbleed.com">heartbleed.com</a></h2>
+<h3 class="text-muted">Tradução livre do <a href="http://heartbleed.com" target="_blank">heartbleed.com</a></h3>
 
 <div class="row">
     <div class="col-lg-8 col-md-8 col-sm-8">
+        <p>A Vulnerabilidade Heartbleed é um bug severo na popular biblioteca de criptografia chamada OpenSSL. A falha
+            permite roubo de informação protegida pelas criptografias nos protocolos SSL/TLS, esta que é de comum uso
+            para segurança na internet. Os protocolos SSL/TLS fornecem comunicação segura e privacidade em conexões de
+            internet, muito utilizados em aplicações web, email, mensageiros instantâneos (IM) e redes de comunicação
+            privadas (VPNs).
+        </p>
         <p>The Heartbleed Bug is a serious vulnerability in the popular OpenSSL cryptographic software library. This
             weakness allows stealing the information protected, under normal conditions, by the SSL/TLS encryption
             used to secure the Internet. SSL/TLS provides communication security and privacy over the Internet for
@@ -333,8 +357,11 @@
     Individual vendors of operating system distributions, affected owners of Internet services, software
     packages and appliance vendors may issue their own advisories.</p>
 
-<h4>References</h4>
+<h4>Referências</h4>
 <ul>
+    <li><a href=">http://heartbleed.com">http://heartbleed.com</a>
+        <small>(texto original, publicado 7 de abril de 2014, ~19:00 UTC)</small>
+    </li>
     <li>CVE-2014-0160</li>
     <li>NCSC-FI case# 788210</li>
     <li><a href="https://www.openssl.org/news/secadv_20140407.txt">http://www.openssl.org/news/secadv_20140407.txt</a>
@@ -342,9 +369,6 @@
     </li>
     <li><a href="http://blog.cloudflare.com/staying-ahead-of-openssl-vulnerabilities">http://blog.cloudflare.com/staying-ahead-of-openssl-vulnerabilities</a>
         <small>(publicado 7 de abril de 2014, ~18:00 UTC)</small>
-    </li>
-    <li><a href=">http://heartbleed.com">http://heartbleed.com</a>
-        <small>(publicado 7 de abril de 2014, ~19:00 UTC)</small>
     </li>
     <li><a href="http://www.ubuntu.com/usn/usn-2165-1/">http://www.ubuntu.com/usn/usn-2165-1/</a></li>
     <li>
@@ -372,8 +396,11 @@
 </div>
 
 <footer class="container">
-    <p class="fl"><a class="renatomefi" title="Renatomefi IT Intelligence" href="http://www.renatomefi.com.br/">Renatomefi IT Intelligence</a></p>
-    <p class="fl"><a class="codenomicon" title="Codenomicon - April 2014" href="http://www.codenomicon.com/">Codenomicon - April
+    <p class="fl"><a class="renatomefi" title="Renatomefi IT Intelligence" href="http://www.renatomefi.com.br/">Renatomefi
+        IT Intelligence</a></p>
+
+    <p class="fl"><a class="codenomicon" title="Codenomicon - April 2014" href="http://www.codenomicon.com/">Codenomicon
+        - April
         2014</a></p>
 </footer>
 
