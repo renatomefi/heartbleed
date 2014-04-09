@@ -6,7 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-    <meta name="description" content="Vulnerabilidade Heartbleed, saiba mais!">
+    <meta name="description"
+          content="Vulnerabilidade Heartbleed, saiba porque ela é extremamente perigosa, como se proteger e o que fazer!">
     <meta name="author" content="Renatomefi IT Intelligence http://www.renatomefi.com.br/">
 
     <meta property="og:site_name" content="Renatomefi IT Intelligence"/>
@@ -95,7 +96,7 @@
 </p>
 
 <p>Também é possível testar um site específico de sua preferência por uma ferramenta chamada <a
-        href="http://filippo.io/Heartbleed/">Heartbleed Test</a></p>
+        href="http://filippo.io/Heartbleed/" target="_blank">Heartbleed Test</a></p>
 
 <p>Além disso você pode instalar uma extensão para o Google Chrome que irá te avisar se o site navegado está vulnerável:
     <a
@@ -106,31 +107,30 @@
 <h4>O que é CVE-2014-0160?</h4>
 
 <p>CVE-2014-0160 é a referência oficial da falha.
-    CVE (Common Vulnerabilities and Exposures, Vulnerabilidades e Exposições públicas) é um padrão para
-
-<p>CVE-2014-0160 is the official reference to this bug. CVE (Common Vulnerabilities and Exposures) is the
-    Standard for Information Security Vulnerability Names maintained by <a href="http://cve.mitre.org/">MITRE</a>.
-    Due to co-incident discovery a duplicate CVE, CVE-2014-0346, which was assigned to us, should not be
-    used, since others independently went public with the CVE-2014-0160 identifier.</p>
+    CVE (Common Vulnerabilities and Exposures, Vulnerabilidades e Exposições públicas) é um padrão para catalogar e
+      padronizar as vulnerabilidades de segurança da informação, a CVE é mantida pelo
+    <a href="http://cve.mitre.org/">MITRE</a>. Como houve uma dupla descoberta da falha, existe um outro registro de CVE
+    , o CVE-2014-0346, este que não deve ser utilizado, pois a falha se tornou pública pelo CVE-2014-0160.</p>
 
 
 <h4>Por quê esta falha é chamada de Heartbleed?</h4>
 
-<p>Bug is in the OpenSSL's implementation of the TLS/DTLS (transport layer security protocols) heartbeat
-    extension (RFC6520). When it is exploited it leads to the leak of memory contents from the server to the
-    client and from the client to the server.</p>
+<p>A falha está na implementação TLS/DTLS proveniente da extensão heartbeat (RFC6520) do OpenSSL. Quando ela é
+    explorada ela vaza informações da memória do servidor para o cliente, assim como do cliente para o servidor.
+    Pelo fato do vazamento, <i>bleed</i> em inglês e o nome da extensão se chamar heartbeat, a faha foi apelidada de
+    <i>Heartbleed</i>.</p>
 
 <h4>O que torna a falha Heartbleed única?</h4>
 
-<p>Bugs in single software or library come and go and are fixed by new versions. However this bug has left
-    large amount of private keys and other secrets exposed to the Internet. Considering the long exposure,
-    ease of exploitation and attacks leaving no trace this exposure should be taken seriously.</p>
-
+<p>A falha está presente apenas em um software, este que já está corrigido nas versões mais novas, porém esta falha
+    permitiu que uma enorme quantidade de chaves privadas de criptografia fossem expostas a internet, considerando esta
+    exposição e a facilidade de ataque e exploração da falha de forma imperceptível, tornou esta falha extremamente
+    séria e perigosa.</p>
 
 <h4>Isso é uma falha na concepção da especificação do protocolo SSL/TLS?</h4>
 
-<p>No. This is implementation problem, i.e. programming mistake in popular OpenSSL library that provides
-    cryptographic services such as SSL/TLS to the applications and services.</p>
+<p>Não. Isto é uma problema de implementação, i.e. erros de programação na biblioteca OpenSSL que providencia
+    serviços de criptografia como o SSL/TLS para aplicações e serviços.</p>
 
 <h4>Que informações estão sendo vazadas?</h4>
 
@@ -181,9 +181,9 @@
 
 <h4>Na prática, como a negação e a reemissão dos certificados funciona? </h4>
 
-<p>Se você é um provedor de serviço você assinou seus certificados com <i>Certificate Authority</i> (CA). Você
-    precisa verificar seu CA como chaves comprometidas podem ser revogadas e um novo certificado reeditado para as novas chaves.
-    Alguns CAs fazem isso gratuitamente, alguns podem cobrar taxas.</p>
+<p>Se você é um provedor de serviços, em algum momento você se registrou com a sua autoridade de Certificado digital (
+    Certificate Authority (CA)). Então você deve checar como chaves comprometidas podem ser checadas e reemitidas.
+    Algumas CAs fazem esta reemissão de forma gratuida, outras cobram.</p>
 
 <h4>Eu estou afetado pela vulnerabilidade?</h4>
 
@@ -198,16 +198,16 @@
 
 <h4>O quão a falha está difundida?</h4>
 
-<p>Software mais notável usando OpenSSL são web servers de código aberto como Apache e nginx. The combined
-    market share of just those two out of the active sites on the Internet was over 66% according to <a
+<p>Software mais notável usando OpenSSL são os servidores web de código aberto como Apache e nginx. A combinação desses dois servidores
+    detém aproximadamente 66% dos sites ativos na internet, veja <a
             href="http://news.netcraft.com/archives/2014/04/02/april-2014-web-server-survey.html">Netcraft's
-        April 2014 Web Server Survey</a>. Furthermore OpenSSL is used to protect for example email servers
-    (SMTP, POP and IMAP protocols), chat servers (XMPP protocol), virtual private networks (SSL VPNs),
-    network appliances and wide variety of client side software. Fortunately many large consumer sites are
-    saved by their conservative choice of SSL/TLS termination equipment and software. Ironically smaller and
-    more progressive services or those who have upgraded to latest and best encryption will be affected
-    most. Furthermore OpenSSL is very popular in client software and somewhat popular in networked
-    appliances which have most inertia in getting updates.</p>
+        April 2014 Web Server Survey</a>. Além disso o <i>OpenSSL</i> é utilizado para proteger por exemplo: servidores de e-mail
+    (SMTP, POP and IMAP protocols), servidores de bate-papo (protocolo XMPP ), rede virtual privada (SSL VPNs),
+    soluções de rede e uma ampla variedade de aplicações ao lado do cliente. Felizmente grandes sites comerciais estão
+    salvos pela escolha conservadora de seus equipamentos de terminais SSL/TLS e software. Ironicamente serviços menores e mais progressivos ou
+    aqueles que atualizaram para a melhor e última criptação serão os mais afetados.
+    Além disso o <i>OpenSSL</i> é muito popular em aplicações do lado do cliente e de alguma forma popular em soluções de rede
+    que são mais atraídos em se atualizar.</p>
 
 <h4>Quais as versões afetadas do OpenSSL?</h4>
 
@@ -220,14 +220,17 @@
     <li>OpenSSL ramificação 0.9.8 NÃO está vulnerável</li>
 </ul>
 
-<p>A vulnerabilidade foi introduzida ao OpenSSL em dezembro de 2011 e está solto desde o lançamento da OpenSSL 1.0.1
-    em 14 de março de 2012. A OpenSSL 1.0.1g foi lançada em 7 de abril 2014 e corrigiu a vulnerabilidade.</p>
+<p>A falha está incluída no OpenSSL desde dezembro de 2011, e foi amplamente difundida desde o OpenSSL versão 1.0.1 de
+    14
+    de março de 2012. A versão do OpenSSL 1.0.1g que foi liberada em 7 de abril de 2014 contém a correção da falha.</p>
 
 <h4>Quão difundidas são as versões vulneráveis do OpenSSL?</h4>
 
-<p>As versões vulneráveis estão disponívels há dois anos e elas foram adotas rapidamente pelos sistemas operacionais modernos.
-    O maior fator de contribuição foi que as versões TLS 1.1 e 1.2 ficaram disponíveis com a primeira versão OpenSSL (1.0.1) vulnerável
-  e a comunidade de segurança vem forçando a TLS 1.2 devido a ataques mais antigos contra TLS (como o <a
+<p>As versões vulneráveis estão disponívels há dois anos agora e elas foram adotas rapidamente pelos sistemas
+    operacionais modernos.
+    O maior fator de contribuição foi que as versões TLS 1.1 e 1.2 ficaram disponíveis com a primeira versão OpenSSL
+    (1.0.1) vulnerável
+    e a comunidade de segurança vem forçando a TLS 1.2 devido a ataques mais antigos contra TLS (como o <a
             href="http://en.wikipedia.org/wiki/Transport_Layer_Security#BEAST_attack">BEAST</a>).</p>
 
 <h4>E os Sistemas Operacionais?</h4>
@@ -257,17 +260,22 @@
 
 <h4>Como o OpenSSL pode ser corrigido?</h4>
 
-<p>Mesmo que a correção pareça trivial, o time da OpenSSL team  está expert em resolver de maneira apropriedade que a última versão corrigida 1.0.1g
-  ou novas devem ser usadas. Se isso não for possível, desenvolvedores podem recompilar o OpenSSL com o pareamente removido utilizando a opção
-    <code>-DOPENSSL_NO_HEARTBEATS</code> no momento da compilação.
+<p>Mesmo que a correção pareça trivial, o time da OpenSSL está expert em resolver de maneira apropriada a falha, assim a
+    última versão 1.0.1g ou mais novas devem ser usadas por estarem corrigidas. Se isso não for possível,
+    desenvolvedores pode recompilar o OpenSSL sem o parâmetro do heartbeat utilizando a opção <code>-DOPENSSL_NO_HEARTBEATS</code>
+    no momento
+    da compilação.
 </p>
 
 <h4>A extensão heartbeat deve ser removida com o intuito de ajudar na deteção de serviços vulneráveis?</h4>
 
-<p>A recuperação dessa vulnerabilidade poderia beneficiar se a nova versão do OpenSSL corrigisse a falha como desabilitasse temporariamente o heartbeat
+<p>A recuperação dessa vulnerabilidade poderia beneficiar se a nova versão do OpenSSL corrigisse a falha como
+    desabilitasse temporariamente o heartbeat
     até algumas futuras versões. Parece que a maioria se não quase todas implementações TLS que respondem
-    a requisição heartbeat hoje são versões vulneráveis de OpenSSL. Se somente versões vulneráveis de OpenSSL continuassem a
-    a responder ao heartbeat pelos próximos meses se tornaria mais factível alcançar proprietários de serviços vulneráveis.</p>
+    a requisição heartbeat hoje são versões vulneráveis de OpenSSL. Se somente versões vulneráveis de OpenSSL
+    continuassem a
+    a responder ao heartbeat pelos próximos meses se tornaria mais factível alcançar proprietários de serviços
+    vulneráveis.</p>
 
 <h4>É possível detectar se alguém aproveitou a falha e usou contra mim?</h4>
 
@@ -278,32 +286,36 @@
 <p> Mesmo o conteúdo da requisição heartbeat seja encriptado ele tem seu próprio tipo de registro no protocolo.
     Isto deve possibilitar detecção de intrusos e a prevenção de sistemas (IDS/IPS) de ser treinado para detectar
     o uso da requisição heartbeat. Devido a criptografia diferenciar entre o uso legítimo e ataque não pode ser baseado
-    no conteúdo da requisição, mas a invasão pode ser detectada pela comparação do tamanho da requisição pelo tamanho da resposta.
-  Isso parece implicar que IDS/IPS pode ser programado para detectar a invasão mas não bloquear a menos
-  que todas as requisições heatbeat sejam bloquedas juntas. </p>
+    no conteúdo da requisição, mas a invasão pode ser detectada pela comparação do tamanho da requisição pelo tamanho da
+    resposta.
+    Isso parece implicar que IDS/IPS pode ser programado para detectar a invasão mas não bloquear a menos
+    que todas as requisições heatbeat sejam bloquedas juntas. </p>
 
 <h4>Já houveram muitos ataques?</h4>
 
-<p>Nós não sabemos. A comunidade de segurança deve implantar <i>TLS/DTLS honeypots</i> que capturam invasores e alertam sobre
+<p>Nós não sabemos. A comunidade de segurança deve implantar <i>TLS/DTLS honeypots</i> que capturam invasores e alertam
+    sobre
     a tentativa de invasão.</p>
 
 <h4>O invasor pode acessar realmente só 64 kilobytes da memória?</h4>
 
 <p>Não há uma limitação de 64 kilobytes no ataque, esse limite se aplica somente a um único heartbeat.
-  O invasor pode se reconectar como durante a conexão TLS ativa enviar requisições solicitando um número arbitrário de 64 kilobyte de conteúdo
-  em memória até o todos os segredos sejam revelados.</p>
+    O invasor pode fazer diversas conexões durante uma sessão TLS ativa e continuar extraindo setores de 64 Kilobytes
+    até
+    que o conteúdo desejado seja totalmente revelado.</p>
 
 <h4>Este é um ataque <i>man in the middle</i> como ocorreu na Apple?</h4>
 
-<p>Não, essa vulnerabilidade não requer <i>man in the middle</i> (MITM). O invasor pode diretamente contatar o serviço vulnerável
+<p>Não, essa vulnerabilidade não requer <i>man in the middle</i> (MITM). O invasor pode diretamente contatar o serviço
+    vulnerável
     ou atacar qualquer usuário conectado a um serviço malicioso. Entretanto, além da ameaça direta o ladrão
     da chave possibilita aos invasores <i>man in the middle</i> personificar serviços comprometidos.</p>
 
 <h4>Os clientes de autenticação TLS conseguem lidar com isso?</h4>
 
 <p>Não, a requisição heartbeat pode ser enviada e respondida durante a etapa de pareamento do protocolo.
-   Isso ocorre antes da autenticação do certificado do cliente.
-   </p>
+    Isso ocorre antes da autenticação do certificado do cliente.
+</p>
 
 <h4>O modo FIPS do OpenSSL consegue lidar com isso?</h4>
 
@@ -312,33 +324,37 @@
 <h4>O Perfect Forward Secrecy (PFS) minimiza esta vulnerabilidade?</h4>
 
 <p>
-   O uso do Perfect Forward Secrecy (PFS), o que, infelizmente, é raro mas poderoso, pode proteger comunicações antigas
-   de descriptografia retrospectiva. Por favor, veja <a href="https://twitter.com/ivanristic/status/453280081897467905">https://twitter.com/ivanristic/status/453280081897467905</a>
-   como chaves que vazaram podem afetar este recurso.</p>
+    O uso do Perfect Forward Secrecy (PFS), o que, infelizmente, é raro mas poderoso, pode proteger comunicações antigas
+    de descriptografia retrospectiva. Por favor, veja <a
+        href="https://twitter.com/ivanristic/status/453280081897467905">https://twitter.com/ivanristic/status/453280081897467905</a>
+    como chaves que vazaram podem afetar este recurso.</p>
 
 <h4>A extensão heartbeat pode ser desabilitada durante o pareamento do protocolo TLS?</h4>
 
-<p>Não, o código da extensão vulnerável heartbeat é ativado independemente do resultado da etapa de negociação e pareamento.
-    O único caminho para se proteger é fazendo a atualização para uma versão corrigida do OpenSSL ou recompilar o OpenSSL com o pareamento removido.</p>
+<p>Não, o código da extensão vulnerável heartbeat é ativado independemente do resultado da etapa de negociação e
+    pareamento.
+    O único caminho para se proteger é fazendo a atualização para uma versão corrigida do OpenSSL ou recompilar o
+    OpenSSL sem a extensão heartbeat.</p>
 
 <h4>Quem encontrou a vulnerabilidade Heartbleed?</h4>
 
 <p>Esta falha foi uma descoberta independente feita pelo time de engenheiros de segurança (Riku, Antti and Matti) no <a
-    href="http://www.codenomicon.com/">Codenomicon</a> e Neel Mehta do Google Security, o qual foi o primeiro
-    a reportar isso ao time da OpenSSL. O time da Codenomicon encontrou a vulnerabilidade heartbleed enquanto melhoravam o SafeGuard,
+        href="http://www.codenomicon.com/">Codenomicon</a> e Neel Mehta do Google Security, o qual foi o primeiro
+    a reportar isso ao time da OpenSSL. O time da Codenomicon encontrou a vulnerabilidade heartbleed enquanto melhoravam
+    o SafeGuard,
     recurso do Codenomicon's Defensics, ferramenta de testes de segurança que reportou essa falha ao NCSC-FI para
     a coordenação de vulnerabilidade e reportou ao time OpenSSL.</p>
 
 <h4>O que é Defensics SafeGuard?</h4>
 
-<p>A SafeGuard, recurso da Codenomicon Defensics, ferramenta de segurança que automaticamente testa o sistema alvo
-    procurando fraquezas que comprometam a integridade, proteção ou privacidade.A SafeGuard é uma solução sistemática
-    que expoem falhas em certificados criptográficos, vazamentos de privacidade ou fraquezas na autenticação
+<p>A SafeGuard, recurso da Codenomicon Defensics, é uma ferramenta de segurança que automaticamente testa o sistema alvo
+    procurando fraquezas que comprometam a integridade, proteção ou privacidade. Esta é uma solução sistemática
+    que expõe falhas em certificados de criptografia, vazamentos de privacidade ou fraquezas na autenticação
     que tenham exposto os usuários da internet ao ataque <i>man in the middle</i> e ao hacking <i>eavesdropping</i>.
     Além da falha HeartBleed o novo recurso da Defensics TLS Safeguard pode detectar por exemplo
     a falha de segurança no amplamente utilizado GnuTLS, aplicação de código aberto que implementa a funcionalidade
-    SSL/TLS
-    no <a href="http://gotofail.com/">"goto fail;"</a> falha na implementação TLS/SSL da Apple que foi corrigido
+    SSL/TLS no <a href="http://gotofail.com/">"goto fail;"</a>, falha na implementação TLS/SSL da Apple que foi
+    corrigida
     em Fevereiro 2014.</p>
 
 <h4>Quem coordena a resposta a esta vulnerabilidade?</h4>
@@ -353,15 +369,16 @@
 <h4>Existe um lado bom de tudo isso?</h4>
 
 <p>Para aqueles provedores de serviços que foram afetados esta é uma boa hora de melhorar a segurança
-    das chaves secretas utilizadas. Muitos softwares receberam updates, estes que geralmente não são atualizados.
-    Mesmo que isso seja muito doloroso a comunidade de segurança, nos temos certeza que a infra-estrutura
+    das chaves de criptografia utilizadas. Muitos softwares receberam updates, estes que geralmente não são atualizados.
+    Mesmo que isso seja muito doloroso para a comunidade de segurança, nós temos certeza que a infra-estrutura
     de criminosos virtuais e seus segredos foram expostos também.</p>
 
 <h4>Onde encontrar mais informação?</h4>
 
-<p>Este Q&amp;A foi publicado como sequência ao aviso OpenSSL, desde de que sua vulnerabilidade tornou-se pública em 7
+<p>Este Q&amp;A foi publicado como sequência ao aviso da OpenSSL, desde de que sua vulnerabilidade tornou-se pública em
+    7
     de abril de 2014.
-    O projeto OpenSSL fez uma declaração na <a
+    O projeto OpenSSL fez uma declaração oficial em seu site <a
             href="https://www.openssl.org/news/secadv_20140407.txt">https://www.openssl.org/news/secadv_20140407.txt</a>.
     NCSC-FI publicou um aviso em <a href="https://www.cert.fi/en/reports/2014/vulnerability788210.html">https://www.cert.fi/en/reports/2014/vulnerability788210.html</a>.
     Fornecedores individuais de distribuições de sistemas operacionais, proprietários afetados de serviços de Internet,
@@ -432,11 +449,12 @@
 <footer class="container">
     <div class="row">
         <div class="col-md-offset-2 col-lg-4 col-md-4 col-sm-4">
-            <a class="renatomefi" title="Renatomefi IT Intelligence" href="http://www.renatomefi.com.br/">Renatomefi
+            <a class="renatomefi" title="Renatomefi IT Intelligence" href="http://www.renatomefi.com.br/"
+               target="_blank">Renatomefi
                 IT Intelligence</a>
         </div>
         <div class="col-lg-4 col-md-4 col-sm-4">
-            <a class="codenomicon" title="Codenomicon - Abril 2014" href="http://www.codenomicon.com/">Codenomicon
+            <a class="codenomicon" title="Codenomicon - Abril 2014" href="http://www.codenomicon.com/" target="_blank">Codenomicon
                 - Abril 2014</a>
         </div>
     </div>
