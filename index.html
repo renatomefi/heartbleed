@@ -100,37 +100,41 @@
 <div class="col-lg-12 col-md-12 col-sm-12">
 <hr>
 <h3>Q&amp;A</h3>
-<h4>What is the CVE-2014-0160?</h4>
+<h4>O que é CVE-2014-0160?</h4>
 
+<p>CVE-2014-0160 é a referência oficial da falha.
+    CVE (Common Vulnerabilities and Exposures, Vulnerabilidades e Exposições públicas) é um padrão para
 <p>CVE-2014-0160 is the official reference to this bug. CVE (Common Vulnerabilities and Exposures) is the
     Standard for Information Security Vulnerability Names maintained by <a href="http://cve.mitre.org/">MITRE</a>.
     Due to co-incident discovery a duplicate CVE, CVE-2014-0346, which was assigned to us, should not be
     used, since others independently went public with the CVE-2014-0160 identifier.</p>
 
-<h4>Why it is called the Heartbleed Bug?</h4>
+
+<h4>Por quê esta falha é chamada de Heartbleed?</h4>
 
 <p>Bug is in the OpenSSL's implementation of the TLS/DTLS (transport layer security protocols) heartbeat
     extension (RFC6520). When it is exploited it leads to the leak of memory contents from the server to the
     client and from the client to the server.</p>
 
-<h4>What makes the Heartbleed Bug unique?</h4>
+<h4>O que torna a falha Heartbleed única?</h4>
 
 <p>Bugs in single software or library come and go and are fixed by new versions. However this bug has left
     large amount of private keys and other secrets exposed to the Internet. Considering the long exposure,
     ease of exploitation and attacks leaving no trace this exposure should be taken seriously.</p>
 
-<h4>Is this a design flaw in SSL/TLS protocol specification?</h4>
+
+<h4>Isso é uma falha na concepção da especificação do protocolo SSL/TLS?</h4>
 
 <p>No. This is implementation problem, i.e. programming mistake in popular OpenSSL library that provides
     cryptographic services such as SSL/TLS to the applications and services.</p>
 
-<h4>What is being leaked?</h4>
+<h4>Que informações estão sendo vazadas?</h4>
 
 <p>Encryption is used to protect secrets that may harm your privacy or security if they leak. In order to
     coordinate recovery from this bug we have classified the compromised secrets to four categories: 1)
     primary key material, 2) secondary key material and 3) protected content and 4) collateral.</p>
 
-<h4>What is leaked primary key material and how to recover?</h4>
+<h4>O que são as chaves primárias de criptografia vazadas e como recupera-las?</h4>
 
 <p>These are the crown jewels, the encryption keys themselves. Leaked secret keys allows the attacker to
     decrypt any past and future traffic to the protected services and to impersonate the service at will.
@@ -140,7 +144,7 @@
     the attacker in the past still vulnerable to decryption. All this has to be done by the owners of the
     services.</p>
 
-<h4>What is leaked secondary key material and how to recover?</h4>
+<h4>O que são as chaves secundárias de criptografia vazadas e como recupera-las?</h4>
 
 <p>These are for example the user credentials (user names and passwords) used in the vulnerable services.
     Recovery from this leaks requires owners of the service first to restore trust to the service according
@@ -148,7 +152,7 @@
     keys according to the instructions from the owners of the services that have been compromised. All
     session keys and session cookies should be invalided and considered compromised.</p>
 
-<h4>What is leaked protected content and how to recover?</h4>
+<h4>O que são os conteúdos protegidos vazados e como recupera-los?</h4>
 
 <p>This is the actual content handled by the vulnerable services. It may be personal or financial details,
     private communication such as emails or instant messages, documents or anything seen worth protecting by
@@ -157,7 +161,7 @@
     secondary key material as described above. Only this enables safe use of the compromised services in the
     future.</p>
 
-<h4>What is leaked collateral and how to recover?</h4>
+<h4>Quais são os vazamentos colaterais e como recupera-los?</h4>
 
 <p>Leaked collateral are other details that have been exposed to the attacker in the leaked memory content.
     These may contain technical details such as memory addresses and security measures such as canaries used
