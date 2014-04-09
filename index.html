@@ -307,19 +307,19 @@
             href="https://twitter.com/ivanristic/status/453280081897467905">https://twitter.com/ivanristic/status/453280081897467905</a>
     how leaked tickets may affect this.</p>
 
-<h4>Can heartbeat extension be disabled during the TLS handshake?</h4>
+<h4>A extensão heartbeat pode ser desabilitada durante o pareamento do protocolo TLS?</h4>
 
 <p>No, vulnerable heartbeat extension code is activated regardless of the results of the handshake phase
     negotiations. Only way to protect yourself is to upgrade to fixed version of OpenSSL or to recompile
     OpenSSL with the handshake removed from the code.</p>
 
-<h4>Who found the Heartbleed Bug?</h4>
+<h4>Quem encontrou a vulnerabilidade Heartbleed?</h4>
 
-<p>This bug was independently discovered by a team of security engineers (Riku, Antti and Matti) at <a
-        href="http://www.codenomicon.com/">Codenomicon</a> and Neel Mehta of Google Security, who first
-    reported it to the OpenSSL team. Codenomicon team found heartbleed bug while improving the SafeGuard
-    feature in Codenomicon's Defensics security testing tools and reported this bug to the NCSC-FI for
-    vulnerability coordination and reporting to OpenSSL team.</p>
+<p>Esta falha foi uma descoberta independente feita pelo time de engenheiros de segurança (Riku, Antti and Matti) no <a
+    href="http://www.codenomicon.com/">Codenomicon</a> e Neel Mehta do Google Security, o qual foi o primeiro
+    a reportar isso ao time da OpenSSL. O time da Codenomicon encontrou a vulnerabilidade heartbleed enquanto melhoravam o SafeGuard,
+    recurso do Codenomicon's Defensics, ferramenta de testes de segurança que reportou essa falha ao NCSC-FI para
+    a coordenação de vulnerabilidade e reportou ao time OpenSSL.</p>
 
 <h4>O que é Defensics SafeGuard?</h4>
 
@@ -327,7 +327,7 @@
     procurando fraquezas que comprometam a integridade, proteção ou privacidade.A SafeGuard é uma solução sistemática
     que expoem falhas em certificados criptográficos, vazamentos de privacidade ou fraquezas na autenticação
     que tenham exposto os usuários da internet ao ataque <i>man in the middle</i> e ao hacking <i>eavesdropping</i>.
-    Além da falha HeartBleed o novo recurso da Defensics TLS Safeguard pode detectar por exemplo
+    Além da vulnerabilidade HeartBleed o novo recurso da Defensics TLS Safeguard pode detectar por exemplo
     a falha de segurança no amplamente utilizado GnuTLS, aplicação de código aberto que implementa a funcionalidade SSL/TLS
     no <a href="http://gotofail.com/">"goto fail;"</a> falha na implementação TLS/SSL da Apple que foi corrigido
     em Fevereiro 2014.</p>
