@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-    <meta name="description" content="Vulnerabilidade Heartbleed, saiba mais!">
+    <meta name="description" content="Vulnerabilidade Heartbleed, saiba porque ela é extremamente perigosa, como se proteger e o que fazer!">
     <meta name="author" content="Renatomefi IT Intelligence http://www.renatomefi.com.br/">
 
     <meta property="og:site_name" content="Renatomefi IT Intelligence"/>
@@ -116,16 +116,16 @@
 
 <h4>Por quê esta falha é chamada de Heartbleed?</h4>
 
+<p></p>
 <p>Bug is in the OpenSSL's implementation of the TLS/DTLS (transport layer security protocols) heartbeat
     extension (RFC6520). When it is exploited it leads to the leak of memory contents from the server to the
     client and from the client to the server.</p>
 
 <h4>O que torna a falha Heartbleed única?</h4>
 
-<p>Bugs in single software or library come and go and are fixed by new versions. However this bug has left
-    large amount of private keys and other secrets exposed to the Internet. Considering the long exposure,
-    ease of exploitation and attacks leaving no trace this exposure should be taken seriously.</p>
-
+<p>A falha está presente apenas em um software, este que já corrigido nas versões mais novas, porém esta falha permitiu
+que uma enorme quantidade de chaves privadas de criptografia fossem expostas a internet, considerando esta exposição e
+a facilidade de ataque e exploração da falha de forma imperceptível, tornou esta falha extremamente séria e perigosa</p>
 
 <h4>Isso é uma falha na concepção da especificação do protocolo SSL/TLS?</h4>
 
@@ -181,9 +181,9 @@
 
 <h4>Na prática, como a negação e a reemissão dos certificados funciona? </h4>
 
-<p>If you are a service provider you have signed your certificates with a Certificate Authority (CA). You
-    need to check your CA how compromised keys can be revoked and new certificate reissued for the new keys.
-    Some CAs do this for free, some may take a fee.</p>
+<p>Se você é um provedor de serviços, em algum momento você se registrou com a sua autoridade de Certificado digital (
+    Certificate Authority (CA)). Então você deve checar como chaves comprometidas podem ser checadas e reemitidas.
+    Algumas CAs fazem esta reemissão de forma gratuida, outras cobram.</p>
 
 <h4>Eu estou afetado pela vulnerabilidade?</h4>
 
@@ -259,11 +259,10 @@
 
 <h4>Como o OpenSSL pode ser corrigido?</h4>
 
-<p>Mesmo que a correção pareça trivial, o time da OpenSSL team está expert em resolver de maneira apropriedade que a
-    última versão corrigida 1.0.1g
-    ou novas devem ser usadas. Se isso não for possível, desenvolvedores podem recompilar o OpenSSL com o pareamente
-    removido utilizando a opção
-    <code>-DOPENSSL_NO_HEARTBEATS</code> no momento da compilação.
+<p>Mesmo que a correção pareça trivial, o time da OpenSSL está expert em resolver de maneira apropriada a falha, assim a
+    última versão 1.0.1g ou mais novas devem ser usadas por estarem corrigidas. Se isso não for possível,
+    desenvolvedores pode recompilar o OpenSSL sem o parâmetro do heartbeat utilizando a opção <code>-DOPENSSL_NO_HEARTBEATS</code> no momento
+    da compilação.
 </p>
 
 <h4>A extensão heartbeat deve ser removida com o intuito de ajudar na deteção de serviços vulneráveis?</h4>
