@@ -274,39 +274,39 @@
 
 <h4>É possível que IDS/IPS possam detectar e bloquear o ataque?</h4>
 
-<p>Although the content of the heartbeat request is encrypted it has its own record type in the protocol.
-    This should allow intrusion detection and prevention systems (IDS/IPS) to be trained to detect use of
-    the heartbeat request. Due to encryption differentiating between legitimate use and attack can not be
-    based on the content of the request, but the attack may be detected by comparing the size of the request
-    against the size of the reply. This seems to imply that IDS/IPS can be programmed to detect the attack
-    but not to block it unless heartbeat requests are blocked altogether.</p>
+<p> Mesmo o conteúdo da requisição heartbeat seja encriptado ele tem seu próprio tipo de registro no protocolo.
+    Isto deve possibilitar detecção de intrusos e a prevenção de sistemas (IDS/IPS) de ser treinado para detectar
+    o uso da requisição heartbeat. Devido a criptografia diferenciar entre o uso legítimo e ataque não pode ser baseado
+    no conteúdo da requisição, mas a invasão pode ser detectada pela comparação do tamanho da requisição pelo tamanho da resposta.
+  Isso parece implicar que IDS/IPS pode ser programado para detectar a invasão mas não bloquear a menos
+  que todas as requisições heatbeat sejam bloquedas juntas. </p>
 
 <h4>Já houveram muitos ataques?</h4>
 
-<p>We don't know. Security community should deploy TLS/DTLS honeypots that entrap attackers and to alert
-    about exploitation attempts.</p>
+<p>Nós não sabemos. A comunidade de segurança deve implantar <i>TLS/DTLS honeypots</i> que capturam invasores e alertam sobre
+    a tentativa de invasão.</p>
 
 <h4>O invasor pode acessar realmente só 64K da memória?</h4>
 
-<p>There is no total of 64 kilobytes limitation to the attack, that limit applies only to a single
-    heartbeat. Attacker can either keep reconnecting or during an active TLS connection keep requesting
-    arbitrary number of 64 kilobyte chunks of memory content until enough secrets are revealed.</p>
+<p>Não há uma limitação de 64 kilobytes no ataque, esse limite se aplica somente a um único heartbeat.
+  O invasor can either keep reconnecting or during an active TLS connection keep requesting
+  arbitrary number of 64 kilobyte chunks of memory content until enough secrets are revealed.</p>
 
-<h4>Is this a MITM bug like Apple's goto fail bug was?</h4>
+<h4>Este é um ataque <i>man in the middle</i> como ocorreu na Apple?</h4>
 
-<p>No this doesn't require a man in the middle attack (MITM). Attacker can directly contact the vulnerable
-    service or attack any user connecting to a malicious service. However in addition to direct threat the
-    theft of the key material allows man in the middle attackers to impersonate compromised services.</p>
+<p>Não, essa vulnerabilidade não requer <i>man in the middle</i> (MITM). O invasor pode diretamente contatar o serviço vulnerável
+    ou atacar qualquer usuário conectado a um serviço malicioso. Entretanto, além da ameaça direta o ladrão
+    da chave possibilita aos invasores <i>man in the middle</i> personificar serviços comprometidos.</p>
 
 <h4>Os clientes de autenticação TLS conseguem lidar com isso?</h4>
 
-<p>No, heartbeat request can be sent and is replied to during the handshake phase of the protocol. This
-    occurs prior to client certificate authentication.</p>
+<p>Não, a requisição heartbeat pode ser enviada e respondida durante a etapa de pareamento do protocolo.
+   Isso ocorre antes da autenticação do certificado do cliente.
+   </p>
 
 <h4>O modo FIPS do OpenSSLFIPS consegue lidar com isso?</h4>
 
-<p>No, OpenSSL Federal Information Processing Standard (FIPS) mode has no effect on the vulnerable heartbeat
-    functionality.</p>
+<p>Não, o OpenSSL Federal Information Processing Standard (FIPS) não possui efeito algum sobre essa vulnerabilidade.</p>
 
 <h4>O Perfect Forward Secrecy (PFS) minimiza esta vulnerabilidade?</h4>
 
