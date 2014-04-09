@@ -168,20 +168,20 @@
     to protect against overflow attacks. These have only contemporary value and will lose their value to the
     attacker when OpenSSL has been upgraded to a fixed version.</p>
 
-<h4>Recovery sounds laborious, is there a short cut?</h4>
+<h4>A recuperação parece trabalhosa, existe uma maneira fácil?</h4>
 
 <p>After seeing what we saw by "attacking" ourselves, with ease, we decided to take this very seriously. We
     have gone laboriously through patching our own critical services and are in progress of dealing with
     possible compromise of our primary and secondary key material. All this just in case we were not first
     ones to discover this and this could have been exploited in the wild already.</p>
 
-<h4>How revocation and reissuing of certificates works in practice?</h4>
+<h4>Na prática, como a negação e a reemissão dos certificados funciona? </h4>
 
 <p>If you are a service provider you have signed your certificates with a Certificate Authority (CA). You
     need to check your CA how compromised keys can be revoked and new certificate reissued for the new keys.
     Some CAs do this for free, some may take a fee.</p>
 
-<h4>Am I affected by the bug?</h4>
+<h4>Eu estou afetado pela vulnerabilidade?</h4>
 
 <p>You are likely to be affected either directly or indirectly. OpenSSL is the most popular open source
     cryptographic library and TLS (transport layer security) implementation used to encrypt traffic on the
@@ -192,7 +192,7 @@
     you might have client side software on your computer that could expose the data from your computer if
     you connect to compromised services.</p>
 
-<h4>How widespread is this?</h4>
+<h4>O quão a falha está difundida?</h4>
 
 <p>Most notable software using OpenSSL are the open source web servers like Apache and nginx. The combined
     market share of just those two out of the active sites on the Internet was over 66% according to <a
@@ -205,21 +205,21 @@
     most. Furthermore OpenSSL is very popular in client software and somewhat popular in networked
     appliances which have most inertia in getting updates.</p>
 
-<h4>What versions of the OpenSSL are affected?</h4>
+<h4>Quais as versões afetadas do OpenSSL?</h4>
 
-<p>Status of different versions:</p>
+<p>Relação de diferentes versões:</p>
 
 <ul>
-    <li>OpenSSL 1.0.1 through 1.0.1f (inclusive) are vulnerable</li>
-    <li>OpenSSL 1.0.1g is NOT vulnerable</li>
-    <li>OpenSSL 1.0.0 branch is NOT vulnerable</li>
-    <li>OpenSSL 0.9.8 branch is NOT vulnerable</li>
+    <li>OpenSSL 1.0.1 até 1.0.1f (inclusive) estão vulneráveis</li>
+    <li>OpenSSL 1.0.1g NÃO está vulnerável</li>
+    <li>OpenSSL ramificação 1.0.0 NÃO está vulnerável</li>
+    <li>OpenSSL ramificação 0.9.8 NÃO está vulnerável</li>
 </ul>
 
 <p>Bug was introduced to OpenSSL in December 2011 and has been out in the wild since OpenSSL release 1.0.1
     on 14th of March 2012. OpenSSL 1.0.1g released on 7th of April 2014 fixes the bug.</p>
 
-<h4>How common are the vulnerable OpenSSL versions?</h4>
+<h4>Quão difundidas são as versões vulneráveis do OpenSSL?</h4>
 
 <p>The vulnerable versions have been out there for over two years now and they have been rapidly adopted by
     modern operating systems. A major contributing factor has been that TLS versions 1.1 and 1.2 came
@@ -227,32 +227,32 @@
     TLS 1.2 due to earlier attacks against TLS (such as the <a
             href="http://en.wikipedia.org/wiki/Transport_Layer_Security#BEAST_attack">BEAST</a>).</p>
 
-<h4>How about operating systems?</h4>
+<h4>E os Sistemas Operacionais?</h4>
 
-<p>Some operating system distributions that have shipped with potentially vulnerable OpenSSL version:</p>
+<p>Algumas distribuições de sistemas operacionais que possuem a versão com a vulnerabilidade no OpenSSL:</p>
 
 <ul>
     <li>Debian Wheezy (stable), OpenSSL 1.0.1e-2+deb7u4</li>
     <li>Ubuntu 12.04.4 LTS, OpenSSL 1.0.1-4ubuntu5.11</li>
     <li>CentOS 6.5, OpenSSL 1.0.1e-15</li>
     <li>Fedora 18, OpenSSL 1.0.1e-4</li>
-    <li>OpenBSD 5.3 (OpenSSL 1.0.1c 10 May 2012) and 5.4 (OpenSSL 1.0.1c 10 May 2012)</li>
-    <li>FreeBSD 10.0 - OpenSSL 1.0.1e 11 Feb 2013</li>
+    <li>OpenBSD 5.3 (OpenSSL 1.0.1c 10 maio 2012) e 5.4 (OpenSSL 1.0.1c 10 maio 2012)</li>
+    <li>FreeBSD 10.0 - OpenSSL 1.0.1e 11 fevereiro 2013</li>
     <li>NetBSD 5.0.2 (OpenSSL 1.0.1e)</li>
     <li>OpenSUSE 12.2 (OpenSSL 1.0.1c)</li>
 </ul>
 
-<p>Operating system distribution with versions that are not vulnerable:</p>
+<p>lgumas distribuições de sistemas operacionais que NÃO possuem a versão com a vulnerabilidade no OpenSSL:</p>
 
 <ul>
-    <li>Debian Squeeze (oldstable), OpenSSL 0.9.8o-4squeeze14</li>
+    <li>Debian Squeeze (Versão estável antiga), OpenSSL 0.9.8o-4squeeze14</li>
     <li>SUSE Linux Enterprise Server</li>
-    <li>FreeBSD 8.4 - OpenSSL 0.9.8y 5 Feb 2013</li>
-    <li>FreeBSD 9.2 - OpenSSL 0.9.8y 5 Feb 2013</li>
-    <li>FreeBSD Ports - OpenSSL 1.0.1g (At 7 Apr 21:46:40 2014 UTC)</li>
+    <li>FreeBSD 8.4 - OpenSSL 0.9.8y 5 fevereiro de 2013</li>
+    <li>FreeBSD 9.2 - OpenSSL 0.9.8y 5 fevereiro de 2013</li>
+    <li>FreeBSD Ports - OpenSSL 1.0.1g (Em 7 de abril às 21:46:40 2014 UTC)</li>
 </ul>
 
-<h4>How can OpenSSL be fixed?</h4>
+<h4>Como o OpenSSL pode ser corrigido?</h4>
 
 <p>Even though the actual code fix may appear trivial, OpenSSL team is the expert in fixing it properly so
     latest fixed version 1.0.1g or newer should be used. If this is not possible software developers can
@@ -260,7 +260,7 @@
     <code>-DOPENSSL_NO_HEARTBEATS</code>.
 </p>
 
-<h4>Should heartbeat be removed to aid in detection of vulnerable services?</h4>
+<h4>A extensão heartbeat deve ser removida com o intuito de ajudar na deteção de serviços vulneráveis?</h4>
 
 <p>Recovery from this bug could benefit if the new version of the OpenSSL would both fix the bug and disable
     heartbeat temporarily until some future version. It appears that majority if not almost all TLS
@@ -268,11 +268,11 @@
     vulnerable versions of OpenSSL would continue to respond to the heartbeat for next few months then large
     scale coordinated response to reach owners of vulnerable services would become more feasible.</p>
 
-<h4>Can I detect if someone has exploited this against me?</h4>
+<h4>É possível detectar se alguém aproveitou a falha e usou contra mim?</h4>
 
-<p>Exploitation of this bug leaves no traces of anything abnormal happening to the logs.</p>
+<p>O abuso desta falha não deixa qualquer tipo de vestígio ou informações incomuns nos logs.</p>
 
-<h4>Can IDS/IPS detect or block this attack?</h4>
+<h4>É possível que IDS/IPS possam detectar e bloquear o ataque?</h4>
 
 <p>Although the content of the heartbeat request is encrypted it has its own record type in the protocol.
     This should allow intrusion detection and prevention systems (IDS/IPS) to be trained to detect use of
@@ -281,12 +281,12 @@
     against the size of the reply. This seems to imply that IDS/IPS can be programmed to detect the attack
     but not to block it unless heartbeat requests are blocked altogether.</p>
 
-<h4>Has this been abused in the wild?</h4>
+<h4>Já houveram muitos ataques?</h4>
 
 <p>We don't know. Security community should deploy TLS/DTLS honeypots that entrap attackers and to alert
     about exploitation attempts.</p>
 
-<h4>Can attacker access only 64k of the memory?</h4>
+<h4>O invasor pode acessar realmente só 64K da memória?</h4>
 
 <p>There is no total of 64 kilobytes limitation to the attack, that limit applies only to a single
     heartbeat. Attacker can either keep reconnecting or during an active TLS connection keep requesting
@@ -298,12 +298,12 @@
     service or attack any user connecting to a malicious service. However in addition to direct threat the
     theft of the key material allows man in the middle attackers to impersonate compromised services.</p>
 
-<h4>Does TLS client certificate authentication mitigate this?</h4>
+<h4>Os clientes de autenticação TLS conseguem lidar com isso?</h4>
 
 <p>No, heartbeat request can be sent and is replied to during the handshake phase of the protocol. This
     occurs prior to client certificate authentication.</p>
 
-<h4>Does OpenSSL's FIPS mode mitigate this?</h4>
+<h4>O modo FIPS do OpenSSLFIPS consegue lidar com isso?</h4>
 
 <p>No, OpenSSL Federal Information Processing Standard (FIPS) mode has no effect on the vulnerable heartbeat
     functionality.</p>
@@ -344,9 +344,8 @@
 
 <p><a href="https://www.cert.fi/en/index.html">NCSC-FI</a> tomou a tarefa de informar os autores do OpenSSL, softwares,
     sistemas operacionais e fornecedores de soluções, que foram potencialmente afetados. Entretanto,
-    esta vulnerabilidade foi encontrada e os detalhes foram lançados independemente por outros antes que este trabalho
-    estivesse completo. Fornecedores devem notificar seus usuários e provedores de serviços. Fornecedores de serviços pela internet devem
-    notificar seus usuário onde e quando uma ação deve ser tomada.</p>
+    esta vulnerabilidade foi encontrada e os detalhes foram lançados de forma independente por outros, antes que este trabalho
+    estivesse completo. Fornecedores de serviços pela internet devem notificar seus usuário onde e quando uma ação deve ser tomada.</p>
 
 <h4>Existe um lado bom de tudo isso?</h4>
 
