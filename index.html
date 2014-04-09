@@ -108,7 +108,7 @@
 
 <p>CVE-2014-0160 é a referência oficial da falha.
     CVE (Common Vulnerabilities and Exposures, Vulnerabilidades e Exposições públicas) é um padrão para catalogar e
-      padronizar as vulnerabilidades de segurança da informação, a CVE é mantida pelo
+    padronizar as vulnerabilidades de segurança da informação, a CVE é mantida pelo
     <a href="http://cve.mitre.org/">MITRE</a>. Como houve uma dupla descoberta da falha, existe um outro registro de CVE
     , o CVE-2014-0346, este que não deve ser utilizado, pois a falha se tornou pública pelo CVE-2014-0160.</p>
 
@@ -129,16 +129,22 @@
 
 <h4>Isso é uma falha na concepção da especificação do protocolo SSL/TLS?</h4>
 
-<p>Não. Isto é uma problema de implementação, i.e. erros de programação na biblioteca OpenSSL que providencia
+<p>Não. Este é um problema de implementação, no caso, um erro de programação na popular biblioteca OpenSSL, que provê
     serviços de criptografia como o SSL/TLS para aplicações e serviços.</p>
 
 <h4>Que informações estão sendo vazadas?</h4>
 
-<p>Encryption is used to protect secrets that may harm your privacy or security if they leak. In order to
-    coordinate recovery from this bug we have classified the compromised secrets to four categories: 1)
-    primary key material, 2) secondary key material and 3) protected content and 4) collateral.</p>
+<p>A criptografia é utilizada para proteger informações que poderiam colocar em risco sua segurança ou privacidade.
+    Separamos os tipos de informação comprometidas em quatro categorias:
+<ul>
+    <li><a href="#Chaves-Primárias">Dados de Chaves primárias</a></li>
+    <li><a href="#Chaves-Secundárias">Dados de Chaves secundárias</a></li>
+    <li><a href="#Conteúdo-Protegido">Conteúdo protegido</a></li>
+    <li><a href="#Colateral">Colateral</a></li>
+</ul>
+</p>
 
-<h4>O que são as chaves primárias de criptografia vazadas e como recupera-las?</h4>
+<h4 id="Chaves-Primárias">O que são as chaves primárias de criptografia vazadas e como recupera-las?</h4>
 
 <p>These are the crown jewels, the encryption keys themselves. Leaked secret keys allows the attacker to
     decrypt any past and future traffic to the protected services and to impersonate the service at will.
@@ -148,7 +154,7 @@
     the attacker in the past still vulnerable to decryption. All this has to be done by the owners of the
     services.</p>
 
-<h4>O que são as chaves secundárias de criptografia vazadas e como recupera-las?</h4>
+<h4 id="Chaves-Secundárias">O que são as chaves secundárias de criptografia vazadas e como recupera-las?</h4>
 
 <p>These are for example the user credentials (user names and passwords) used in the vulnerable services.
     Recovery from this leaks requires owners of the service first to restore trust to the service according
@@ -156,7 +162,7 @@
     keys according to the instructions from the owners of the services that have been compromised. All
     session keys and session cookies should be invalided and considered compromised.</p>
 
-<h4>O que são os conteúdos protegidos vazados e como recupera-los?</h4>
+<h4 id="Conteúdo-Protegido">O que são os conteúdos protegidos vazados e como recupera-los?</h4>
 
 <p>This is the actual content handled by the vulnerable services. It may be personal or financial details,
     private communication such as emails or instant messages, documents or anything seen worth protecting by
@@ -165,7 +171,7 @@
     secondary key material as described above. Only this enables safe use of the compromised services in the
     future.</p>
 
-<h4>Quais são os vazamentos colaterais e como recupera-los?</h4>
+<h4 id="Colateral">Quais são os vazamentos colaterais e como recupera-los?</h4>
 
 <p>Leaked collateral are other details that have been exposed to the attacker in the leaked memory content.
     These may contain technical details such as memory addresses and security measures such as canaries used
