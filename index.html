@@ -89,11 +89,12 @@
         <h3>Como parar a vulnerabilidade?</h3>
 
         <p>Enquanto as versões que apresentam a falha estiverem em uso, as aplicações poderão ser atacadas. <a
-            href="https://www.openssl.org/news/secadv_20140407.txt">Versão corrigida do OpenSSL</a> foi liberada e agora
-        deve ser aplicada. Fabricantes de sistema operacional, distribuidores, vendedores de solução,
-        desenvolvedores independentes devem adotar a correção e notificar seus usuários. Provedores de serviços e
-        seus usuários devem instalar a correção nos seus sistemas operacionais, serviços de rede e aplicações assim
-        que suas versões forem liberadas.</p>
+                href="https://www.openssl.org/news/secadv_20140407.txt">Versão corrigida do OpenSSL</a> foi liberada e
+            agora
+            deve ser aplicada. Fabricantes de sistema operacional, distribuidores, vendedores de solução,
+            desenvolvedores independentes devem adotar a correção e notificar seus usuários. Provedores de serviços e
+            seus usuários devem instalar a correção nos seus sistemas operacionais, serviços de rede e aplicações assim
+            que suas versões forem liberadas.</p>
     </div>
 </div>
 <div class="row">
@@ -104,6 +105,7 @@
 
 <p>CVE-2014-0160 é a referência oficial da falha.
     CVE (Common Vulnerabilities and Exposures, Vulnerabilidades e Exposições públicas) é um padrão para
+
 <p>CVE-2014-0160 is the official reference to this bug. CVE (Common Vulnerabilities and Exposures) is the
     Standard for Information Security Vulnerability Names maintained by <a href="http://cve.mitre.org/">MITRE</a>.
     Due to co-incident discovery a duplicate CVE, CVE-2014-0346, which was assigned to us, should not be
@@ -242,7 +244,7 @@
     <li>OpenSUSE 12.2 (OpenSSL 1.0.1c)</li>
 </ul>
 
-<p>lgumas distribuições de sistemas operacionais que NÃO possuem a versão com a vulnerabilidade no OpenSSL:</p>
+<p>Algumas distribuições de sistemas operacionais que NÃO possuem a versão com a vulnerabilidade no OpenSSL:</p>
 
 <ul>
     <li>Debian Squeeze (Versão estável antiga), OpenSSL 0.9.8o-4squeeze14</li>
@@ -286,7 +288,7 @@
 <p>We don't know. Security community should deploy TLS/DTLS honeypots that entrap attackers and to alert
     about exploitation attempts.</p>
 
-<h4>O invasor pode acessar realmente só 64K da memória?</h4>
+<h4>O invasor pode acessar realmente só 64 kilobytes da memória?</h4>
 
 <p>There is no total of 64 kilobytes limitation to the attack, that limit applies only to a single
     heartbeat. Attacker can either keep reconnecting or during an active TLS connection keep requesting
@@ -303,7 +305,7 @@
 <p>No, heartbeat request can be sent and is replied to during the handshake phase of the protocol. This
     occurs prior to client certificate authentication.</p>
 
-<h4>O modo FIPS do OpenSSLFIPS consegue lidar com isso?</h4>
+<h4>O modo FIPS do OpenSSL consegue lidar com isso?</h4>
 
 <p>No, OpenSSL Federal Information Processing Standard (FIPS) mode has no effect on the vulnerable heartbeat
     functionality.</p>
@@ -336,7 +338,8 @@
     que expoem falhas em certificados criptográficos, vazamentos de privacidade ou fraquezas na autenticação
     que tenham exposto os usuários da internet ao ataque <i>man in the middle</i> e ao hacking <i>eavesdropping</i>.
     Além da falha HeartBleed o novo recurso da Defensics TLS Safeguard pode detectar por exemplo
-    a falha de segurança no amplamente utilizado GnuTLS, aplicação de código aberto que implementa a funcionalidade SSL/TLS
+    a falha de segurança no amplamente utilizado GnuTLS, aplicação de código aberto que implementa a funcionalidade
+    SSL/TLS
     no <a href="http://gotofail.com/">"goto fail;"</a> falha na implementação TLS/SSL da Apple que foi corrigido
     em Fevereiro 2014.</p>
 
@@ -344,15 +347,17 @@
 
 <p><a href="https://www.cert.fi/en/index.html">NCSC-FI</a> tomou a tarefa de informar os autores do OpenSSL, softwares,
     sistemas operacionais e fornecedores de soluções, que foram potencialmente afetados. Entretanto,
-    esta vulnerabilidade foi encontrada e os detalhes foram lançados de forma independente por outros, antes que este trabalho
-    estivesse completo. Fornecedores de serviços pela internet devem notificar seus usuário onde e quando uma ação deve ser tomada.</p>
+    esta vulnerabilidade foi encontrada e os detalhes foram lançados de forma independente por outros, antes que este
+    trabalho
+    estivesse completo. Fornecedores de serviços pela internet devem notificar seus usuário onde e quando uma ação deve
+    ser tomada.</p>
 
 <h4>Existe um lado bom de tudo isso?</h4>
 
 <p>Para aqueles provedores de serviços que foram afetados esta é uma boa hora de melhorar a segurança
- das chaves secretas utilizadas. Muitos softwares receberam updates, estes que geralmente não são atualizados.
- Mesmo que isso seja muito doloroso a comunidade de segurança, nos temos certeza que a infra-estrutura
- de criminosos virtuais e seus segredos foram expostos também.</p>
+    das chaves secretas utilizadas. Muitos softwares receberam updates, estes que geralmente não são atualizados.
+    Mesmo que isso seja muito doloroso a comunidade de segurança, nos temos certeza que a infra-estrutura
+    de criminosos virtuais e seus segredos foram expostos também.</p>
 
 <h4>Onde encontrar mais informação?</h4>
 
@@ -367,8 +372,6 @@
 
 <h4>Referências</h4>
 <ul>
-    <li><a href=">http://heartbleed.com">http://heartbleed.com</a>
-        <small>(texto original, publicado 7 de abril de 2014, ~19:00 UTC)</small>
     </li>
     <li>CVE-2014-0160</li>
     <li>NCSC-FI case# 788210</li>
@@ -399,17 +402,34 @@
     </li>
     <li><a href="http://www.circl.lu/pub/tr-21/">http://www.circl.lu/pub/tr-21/</a></li>
 </ul>
+
+<h4>Tradução</h4>
+<ul>
+    <li><a href="http://heartbleed.com" target="_blank">http://heartbleed.com</a>
+        <small>(texto original, publicado 7 de abril de 2014, ~19:00 UTC)</small>
+    </li>
+    <li><a href="http://br.linkedin.com/in/renatomefidf/" target="_blank">Renato Mendes Figueiredo</a> | <a
+            href="http://www.renatomefi.com.br/" target="_blank">Renatomefi IT Solutions</a></li>
+    <li><a href="https://github.com/milk-df" target="_blank">Samuel Mendes</a></li>
+    <li>Ajude-nos a traduzir ou acrescentar mais informações em <a href="https://github.com/renatomefidf/heartbleed"
+                                                                   target="_blank">https://github.com/renatomefidf/heartbleed</a>
+    </li>
+</ul>
 </div>
 </div>
 </div>
 
 <footer class="container">
-    <p class="fl"><a class="renatomefi" title="Renatomefi IT Intelligence" href="http://www.renatomefi.com.br/">Renatomefi
-        IT Intelligence</a></p>
-
-    <p class="fl"><a class="codenomicon" title="Codenomicon - Abril 2014" href="http://www.codenomicon.com/">Codenomicon
-        - Abril
-        2014</a></p>
+    <div class="row">
+        <div class="col-md-offset-2 col-lg-4 col-md-4 col-sm-4">
+            <a class="renatomefi" title="Renatomefi IT Intelligence" href="http://www.renatomefi.com.br/">Renatomefi
+                IT Intelligence</a>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-4">
+            <a class="codenomicon" title="Codenomicon - Abril 2014" href="http://www.codenomicon.com/">Codenomicon
+                - Abril 2014</a>
+        </div>
+    </div>
 </footer>
 
 </body>
