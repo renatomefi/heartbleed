@@ -36,12 +36,26 @@
 <div class="container">
 <h1>A Vulnerabilidade Heartbleed</h1>
 
+<div class="row">
+    <div class="col-lg-8 col-md-8 col-sm-8">
+        <iframe id="ytplayer" type="text/html" width="640" height="390"
+                src="http://www.youtube.com/embed/M7lc1UVf-VE?autoplay=1&origin=http://www.heartbleed.com.br"
+                frameborder="0"></iframe>
+    </div>
+    <div class="col-lg-4 col-md-4 col-sm-4" style="padding-top: 30px;">
+        <img src="./assets/heartbleed.png" alt="Heartbleed Bug">
+    </div>
+</div>
+
 <h3><a class="text-info" href="#tradução">Tradução livre e adaptada do</a> <a class="text-muted"
                                                                               href="http://heartbleed.com"
                                                                               target="_blank">heartbleed.com</a></h3>
 
 <div class="row">
-    <div class="col-lg-8 col-md-8 col-sm-8">
+    <div class="col-md-2 col-lg-2 col-sm-2">
+        <img src="/assets/openssl-logo_vert.png" />
+    </div>
+    <div class="col-lg-8 col-md-8 col-sm-12">
         <p>A Vulnerabilidade Heartbleed é um bug severo na popular biblioteca de criptografia chamada OpenSSL. A falha
             permite roubo de informação protegida pelas criptografias nos protocolos SSL/TLS, esta que é de comum uso
             para segurança na internet. Os protocolos SSL/TLS fornecem comunicação segura e privacidade em conexões de
@@ -54,9 +68,6 @@
             permite
             que invasores que estão monitorando sua comunicação, sejam capazes de roubar suas informações que estariam
             criptografadas inicialmente.</p>
-    </div>
-    <div class="col-lg-4 col-md-4 col-sm-4" style="padding-top: 30px;">
-        <img src="./assets/heartbleed.png" alt="Heartbleed Bug">
     </div>
 </div>
 
@@ -193,24 +204,32 @@
 
 <h4>Eu estou afetado pela vulnerabilidade?</h4>
 
-<p>É provável que você seja afetado direto ou indiretamente. A <i>OpenSSL</i> é a mais popular biblioteca de criptografica e implementação TLS (Segurança da camada de transporte)
-  de código aberto  utilizada em encriptação de tráfico na internet. Sua rede social, o site da sua empresa, os sites comerciais, sites que você utiliza para
+<p>É provável que você seja afetado direto ou indiretamente. A <i>OpenSSL</i> é a mais popular biblioteca de
+    criptografica e implementação TLS (Segurança da camada de transporte)
+    de código aberto utilizada em encriptação de tráfico na internet. Sua rede social, o site da sua empresa, os sites
+    comerciais, sites que você utiliza para
     instalar softwares ou até os sites que seu governo utiliza estão vulneráveis com o <i>OpenSSL</i>.
-   Muitos serviços online usam TLS para identificar eles mesmo para você e para proteger sua privacidade e suas transações.
+    Muitos serviços online usam TLS para identificar eles mesmo para você e para proteger sua privacidade e suas
+    transações.
     Você pode ter soluções em rede com logins protegidos pela implementação do TLS com a vulnerabilidade. Além disso
-    você pode ter aplicações no seu computador que poderiam expor seus dados se você estiver conectado a serviços comprometidos.</p>
+    você pode ter aplicações no seu computador que poderiam expor seus dados se você estiver conectado a serviços
+    comprometidos.</p>
 
 <h4>O quão a falha está difundida?</h4>
 
-<p>Software mais notável usando OpenSSL são os servidores web de código aberto como Apache e nginx. A combinação desses dois servidores
+<p>Software mais notável usando OpenSSL são os servidores web de código aberto como Apache e nginx. A combinação desses
+    dois servidores
     detém aproximadamente 66% dos sites ativos na internet, veja <a
             href="http://news.netcraft.com/archives/2014/04/02/april-2014-web-server-survey.html">Netcraft's
-        April 2014 Web Server Survey</a>. Além disso o <i>OpenSSL</i> é utilizado para proteger por exemplo: servidores de e-mail
+        April 2014 Web Server Survey</a>. Além disso o <i>OpenSSL</i> é utilizado para proteger por exemplo: servidores
+    de e-mail
     (protocolos SMTP, POP e IMAP), servidores de bate-papo (protocolo XMPP ), rede virtual privada (SSL VPNs),
     soluções de rede e uma ampla variedade de aplicações ao lado do cliente. Felizmente grandes sites comerciais estão
-    salvos pela escolha conservadora de seus equipamentos de terminais SSL/TLS e software. Ironicamente serviços menores e mais progressivos ou
+    salvos pela escolha conservadora de seus equipamentos de terminais SSL/TLS e software. Ironicamente serviços menores
+    e mais progressivos ou
     aqueles que atualizaram para a melhor e última criptação serão os mais afetados.
-    Além disso o <i>OpenSSL</i> é muito popular em aplicações do lado do cliente e de alguma forma popular em soluções de rede
+    Além disso o <i>OpenSSL</i> é muito popular em aplicações do lado do cliente e de alguma forma popular em soluções
+    de rede
     que são mais atraídos em se atualizar.</p>
 
 <h4>Quais as versões afetadas do OpenSSL?</h4>
