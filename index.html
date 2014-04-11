@@ -34,7 +34,9 @@
 <body>
 
 <div class="container">
-<h1>A Vulnerabilidade Heartbleed</h1>
+<h1>A Vulnerabilidade Heartbleed
+    <small>Entenda e mantenha-se atualizado</small>
+</h1>
 
 <div class="row">
     <div class="col-lg-8 col-md-8 col-sm-8">
@@ -58,9 +60,6 @@
                                                                               target="_blank">heartbleed.com</a></h3>
 
 <div class="row">
-    <!--<div class="col-md-2 col-lg-2 col-sm-2">-->
-        <!--<img src="/assets/openssl-logo_vert.png"/>-->
-    <!--</div>-->
     <div class="col-lg-6 col-md-6 col-sm-12">
         <p>A Vulnerabilidade Heartbleed é um bug severo na popular biblioteca de criptografia chamada OpenSSL. A falha
             permite roubo de informação protegida pelas criptografias nos protocolos SSL/TLS, esta que é de comum uso
@@ -76,8 +75,22 @@
             criptografadas inicialmente.</p>
     </div>
     <div class="col-lg-6 col-md-6 col-sm-12">
-        <div id="fb-root"></div> <script>(function(d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (d.getElementById(id)) return; js = d.createElement(s); js.id = id; js.src = "//connect.facebook.net/en_US/all.js#xfbml=1"; fjs.parentNode.insertBefore(js, fjs); }(document, 'script', 'facebook-jssdk'));</script>
-        <div class="fb-post" data-href="https://www.facebook.com/vunerabilidadeheartbleed/posts/247227985463063" data-width="466"><div class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/vunerabilidadeheartbleed/posts/247227985463063">Post</a> by <a href="https://www.facebook.com/vunerabilidadeheartbleed">Vulnerabilidade Heartbleed</a>.</div></div>
+        <div id="fb-root"></div>
+        <script>(function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s);
+            js.id = id;
+            js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
+        <div class="fb-post" data-href="https://www.facebook.com/vunerabilidadeheartbleed/posts/247227985463063"
+             data-width="466">
+            <div class="fb-xfbml-parse-ignore"><a
+                    href="https://www.facebook.com/vunerabilidadeheartbleed/posts/247227985463063">Post</a> by <a
+                    href="https://www.facebook.com/vunerabilidadeheartbleed">Vulnerabilidade Heartbleed</a>.
+            </div>
+        </div>
     </div>
 </div>
 
@@ -107,8 +120,9 @@
 </div>
 <div class="row">
 <div class="col-lg-12 col-md-12 col-sm-12">
+<h3><small>Página atualizada em 10/04/2014 às 22:00 UTC - 3</small></h3>
 <hr>
-<h3>Q&amp;A - Perguntas frequentes</h3>
+<h3 class="text-info">Q&amp;A - Perguntas frequentes</h3>
 
 <h4 class="text-success">Como posso identificar sites vulneráveis?</h4>
 
@@ -125,20 +139,11 @@
             target="_blank">ChromeBleed</a>
 </p>
 
-<h4>O que é CVE-2014-0160?</h4>
-
-<p>CVE-2014-0160 é a referência oficial da falha.
-    CVE (Common Vulnerabilities and Exposures, Vulnerabilidades e Exposições públicas) é um padrão para catalogar e
-    padronizar as vulnerabilidades de segurança da informação, a CVE é mantida pelo
-    <a href="http://cve.mitre.org/">MITRE</a>. Como houve uma dupla descoberta da falha, existe um outro registro de CVE
-    , o CVE-2014-0346, este que não deve ser utilizado, pois a falha se tornou pública pelo CVE-2014-0160.</p>
-
-
 <h4>Por quê esta falha é chamada de Heartbleed?</h4>
 
-<p>A falha está na implementação TLS/DTLS proveniente da extensão heartbeat (RFC6520) do OpenSSL. Quando ela é
+<p>A falha está na implementação TLS/DTLS proveniente da extensão heartbeat (RFC6520) do OpenSSL. Quando
     explorada ela vaza informações da memória do servidor para o cliente, assim como do cliente para o servidor.
-    Pelo fato do vazamento, <i>bleed</i> em inglês e o nome da extensão se chamar heartbeat, a faha foi apelidada de
+    Pelo fato do vazamento, <i>bleed</i> em inglês e o nome da extensão se chamar heartbeat, a falha foi apelidada de
     <i>Heartbleed</i>.</p>
 
 <h4>O que torna a falha Heartbleed única?</h4>
@@ -147,6 +152,66 @@
     permitiu que uma enorme quantidade de chaves privadas de criptografia fossem expostas a internet, considerando esta
     exposição e a facilidade de ataque e exploração da falha de forma imperceptível, tornou esta falha extremamente
     séria e perigosa.</p>
+
+<h4>O quão a falha está difundida?</h4>
+
+<p>Software mais notável usando OpenSSL são os servidores web de código aberto como Apache e nginx. A combinação desses
+    dois servidores
+    detém aproximadamente 66% dos sites ativos na internet, veja <a
+            href="http://news.netcraft.com/archives/2014/04/02/april-2014-web-server-survey.html">Netcraft's
+        April 2014 Web Server Survey</a>. Além disso o <i>OpenSSL</i> é utilizado para proteger por exemplo: servidores
+    de e-mail
+    (protocolos SMTP, POP e IMAP), servidores de bate-papo (protocolo XMPP ), rede virtual privada (SSL VPNs),
+    soluções de rede e uma ampla variedade de aplicações ao lado do cliente. Felizmente grandes sites comerciais estão
+    salvos pela escolha conservadora de seus equipamentos de terminais SSL/TLS e software. Ironicamente serviços menores
+    e mais progressivos ou
+    aqueles que atualizaram para a melhor e última criptação serão os mais afetados.
+    Além disso o <i>OpenSSL</i> é muito popular em aplicações do lado do cliente e de alguma forma popular em soluções
+    de rede
+    que são mais atraídos em se atualizar.</p>
+
+<h4>Eu estou afetado pela vulnerabilidade?</h4>
+
+<p>É provável que você seja afetado direto ou indiretamente. A <i>OpenSSL</i> é a mais popular biblioteca de
+    criptografica e implementação TLS (Segurança da camada de transporte)
+    de código aberto utilizada em encriptação de tráfico na internet. Sua rede social, o site da sua empresa, os sites
+    comerciais, sites que você utiliza para
+    instalar softwares ou até os sites que seu governo utiliza estão vulneráveis com o <i>OpenSSL</i>.
+    Muitos serviços online usam TLS para identificar eles mesmo para você e para proteger sua privacidade e suas
+    transações.
+    Você pode ter soluções em rede com logins protegidos pela implementação do TLS com a vulnerabilidade. Além disso
+    você pode ter aplicações no seu computador que poderiam expor seus dados se você estiver conectado a serviços
+    comprometidos.</p>
+
+<h4>Já houveram muitos ataques?</h4>
+
+<p>Nós não sabemos. A comunidade de segurança deve implantar <i>TLS/DTLS honeypots</i> que capturam invasores e alertam
+    sobre
+    a tentativa de invasão.</p>
+
+<h4>É possível detectar se alguém aproveitou a falha e usou contra mim?</h4>
+
+<p>O abuso desta falha não deixa qualquer tipo de vestígio ou informações incomuns nos logs.</p>
+
+<h4>Quem encontrou a vulnerabilidade Heartbleed?</h4>
+
+<p>Esta falha foi uma descoberta independente feita pelo time de engenheiros de segurança (Riku, Antti and Matti) no <a
+        href="http://www.codenomicon.com/">Codenomicon</a> e Neel Mehta do Google Security, o qual foi o primeiro
+    a reportar isso ao time da OpenSSL. O time da Codenomicon encontrou a vulnerabilidade heartbleed enquanto melhoravam
+    o SafeGuard,
+    recurso do Codenomicon's Defensics, ferramenta de testes de segurança que reportou essa falha ao NCSC-FI para
+    a coordenação de vulnerabilidade e reportou ao time OpenSSL.</p>
+
+<hr>
+<h3 class="text-info">Q&amp;A Técnico</h3>
+
+<h4>O que é CVE-2014-0160?</h4>
+
+<p>CVE-2014-0160 é a referência oficial da falha.
+    CVE (Common Vulnerabilities and Exposures, Vulnerabilidades e Exposições públicas) é um padrão para catalogar e
+    padronizar as vulnerabilidades de segurança da informação, a CVE é mantida pelo
+    <a href="http://cve.mitre.org/">MITRE</a>. Como houve uma dupla descoberta da falha, existe um outro registro de CVE
+    , o CVE-2014-0346, este que não deve ser utilizado, pois a falha se tornou pública pelo CVE-2014-0160.</p>
 
 <h4>Isso é uma falha na concepção da especificação do protocolo SSL/TLS?</h4>
 
@@ -213,36 +278,6 @@
 <p>Se você é um provedor de serviços, em algum momento você se registrou com a sua autoridade de Certificado digital (
     Certificate Authority (CA)). Então você deve checar como chaves comprometidas podem ser checadas e reemitidas.
     Algumas CAs fazem esta reemissão de forma gratuida, outras cobram.</p>
-
-<h4>Eu estou afetado pela vulnerabilidade?</h4>
-
-<p>É provável que você seja afetado direto ou indiretamente. A <i>OpenSSL</i> é a mais popular biblioteca de
-    criptografica e implementação TLS (Segurança da camada de transporte)
-    de código aberto utilizada em encriptação de tráfico na internet. Sua rede social, o site da sua empresa, os sites
-    comerciais, sites que você utiliza para
-    instalar softwares ou até os sites que seu governo utiliza estão vulneráveis com o <i>OpenSSL</i>.
-    Muitos serviços online usam TLS para identificar eles mesmo para você e para proteger sua privacidade e suas
-    transações.
-    Você pode ter soluções em rede com logins protegidos pela implementação do TLS com a vulnerabilidade. Além disso
-    você pode ter aplicações no seu computador que poderiam expor seus dados se você estiver conectado a serviços
-    comprometidos.</p>
-
-<h4>O quão a falha está difundida?</h4>
-
-<p>Software mais notável usando OpenSSL são os servidores web de código aberto como Apache e nginx. A combinação desses
-    dois servidores
-    detém aproximadamente 66% dos sites ativos na internet, veja <a
-            href="http://news.netcraft.com/archives/2014/04/02/april-2014-web-server-survey.html">Netcraft's
-        April 2014 Web Server Survey</a>. Além disso o <i>OpenSSL</i> é utilizado para proteger por exemplo: servidores
-    de e-mail
-    (protocolos SMTP, POP e IMAP), servidores de bate-papo (protocolo XMPP ), rede virtual privada (SSL VPNs),
-    soluções de rede e uma ampla variedade de aplicações ao lado do cliente. Felizmente grandes sites comerciais estão
-    salvos pela escolha conservadora de seus equipamentos de terminais SSL/TLS e software. Ironicamente serviços menores
-    e mais progressivos ou
-    aqueles que atualizaram para a melhor e última criptação serão os mais afetados.
-    Além disso o <i>OpenSSL</i> é muito popular em aplicações do lado do cliente e de alguma forma popular em soluções
-    de rede
-    que são mais atraídos em se atualizar.</p>
 
 <h4>Quais as versões afetadas do OpenSSL?</h4>
 
@@ -312,10 +347,6 @@
     a responder ao heartbeat pelos próximos meses se tornaria mais factível alcançar proprietários de serviços
     vulneráveis.</p>
 
-<h4>É possível detectar se alguém aproveitou a falha e usou contra mim?</h4>
-
-<p>O abuso desta falha não deixa qualquer tipo de vestígio ou informações incomuns nos logs.</p>
-
 <h4>É possível que IDS/IPS possam detectar e bloquear o ataque?</h4>
 
 <p> Mesmo o conteúdo da requisição heartbeat seja encriptado ele tem seu próprio tipo de registro no protocolo.
@@ -325,12 +356,6 @@
     resposta.
     Isso parece implicar que IDS/IPS pode ser programado para detectar a invasão mas não bloquear a menos
     que todas as requisições heatbeat sejam bloquedas juntas. </p>
-
-<h4>Já houveram muitos ataques?</h4>
-
-<p>Nós não sabemos. A comunidade de segurança deve implantar <i>TLS/DTLS honeypots</i> que capturam invasores e alertam
-    sobre
-    a tentativa de invasão.</p>
 
 <h4>O invasor pode acessar realmente só 64 kilobytes da memória?</h4>
 
@@ -370,15 +395,6 @@
     pareamento.
     O único caminho para se proteger é fazendo a atualização para uma versão corrigida do OpenSSL ou recompilar o
     OpenSSL sem a extensão heartbeat.</p>
-
-<h4>Quem encontrou a vulnerabilidade Heartbleed?</h4>
-
-<p>Esta falha foi uma descoberta independente feita pelo time de engenheiros de segurança (Riku, Antti and Matti) no <a
-        href="http://www.codenomicon.com/">Codenomicon</a> e Neel Mehta do Google Security, o qual foi o primeiro
-    a reportar isso ao time da OpenSSL. O time da Codenomicon encontrou a vulnerabilidade heartbleed enquanto melhoravam
-    o SafeGuard,
-    recurso do Codenomicon's Defensics, ferramenta de testes de segurança que reportou essa falha ao NCSC-FI para
-    a coordenação de vulnerabilidade e reportou ao time OpenSSL.</p>
 
 <h4>O que é Defensics SafeGuard?</h4>
 
